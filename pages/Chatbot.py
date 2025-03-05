@@ -61,7 +61,7 @@ def response_generator():
         time.sleep(0.05)
 
 
-API_KEY =  st.secrets("API_KEY")
+API_KEY =  st.secrets["API_KEY"]
 
 
 
