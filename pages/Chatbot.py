@@ -59,7 +59,7 @@ def response_generator():
         time.sleep(0.05)
 
 
-API_KEY = "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"
+API_KEY = ""
 
 from huggingface_hub import InferenceClient
 
