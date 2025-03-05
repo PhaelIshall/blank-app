@@ -1,6 +1,8 @@
 import streamlit as st 
 import random
 import time
+import os
+from huggingface_hub import InferenceClient
 # st.set_page_config(page_title="Chatbot", page_icon="")
 
 # Load custom CSS
@@ -59,9 +61,9 @@ def response_generator():
         time.sleep(0.05)
 
 
-API_KEY = ""
+API_KEY =  os.environ("API_KEY")
 
-from huggingface_hub import InferenceClient
+
 
 client = InferenceClient(
 	provider="hf-inference",
