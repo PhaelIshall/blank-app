@@ -2,10 +2,11 @@ import streamlit as st
 
 # Configure page settings
 st.set_page_config(
-    page_title="Modern Streamlit App",
+    page_title="Welcome",
     page_icon="✨",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed",
+   
 )
 
 
@@ -21,34 +22,26 @@ def main():
     # Header section with custom styling
     st.markdown("""
         <div class="header-container">
-            <h1>Welcome to Modern Streamlit</h1>
-            <p class="subtitle">A multi-page application template</p>
+            <h1>Trusting AI</h1>
+            <p class="subtitle">An interactive journey into how AI systems work and why fairness matters</p>
         </div>
     """, unsafe_allow_html=True)
 
     # Create three columns for a modern layout
-    col1, col2, col3 = st.columns([1,1,1])
+    col1, col2 = st.columns([1,1])
 
     with col1:
         st.markdown("""
             <div class="card">
-                <h3>Getting Started</h3>
-                <p>Navigate through pages using the sidebar menu</p>
+                <h3>Learn the basiscs</h3>
+                <p>Discover how AI facial recognition works and why bias can occur</p>
             </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown("""
             <div class="card">
-                <h3>Features</h3>
-                <p>Modern design with multiple interactive pages</p>
-            </div>
-        """, unsafe_allow_html=True)
-
-    with col3:
-        st.markdown("""
-            <div class="card">
-                <h3>Documentation</h3>
+                <h3>Fact-checking</h3>
                 <p>Check other pages for more examples</p>
             </div>
         """, unsafe_allow_html=True)
@@ -59,6 +52,7 @@ def main():
             <p>Built with Streamlit ❤️</p>
         </div>
     """, unsafe_allow_html=True)
-
+    
+    
 if __name__ == "__main__":
     main()
