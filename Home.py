@@ -84,7 +84,7 @@ def main():
     docs = answers.stream()
     
     for doc in docs:
-        st.write(f"{doc.id} => {doc.to_dict()}")
+        st.button(f"{doc.id}")
 
     # When Enter is pressed
     # if answer:
