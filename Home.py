@@ -53,7 +53,7 @@ def main():
     # Footer section
     st.markdown("""
         <div class="footer">
-            <p>Built with Streamlit ❤️</p>
+            <p> UCL AI Outreach program 2025 </p>
         </div>
     """, unsafe_allow_html=True)
     
