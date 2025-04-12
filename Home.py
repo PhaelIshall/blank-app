@@ -15,7 +15,7 @@ fb_credentials = {"type": st.secrets.firebase["type"],
   "client_x509_cert_url": st.secrets.firebase["client_x509_cert_url"],
   "universe_domain": st.secrets.firebase["universe_domain"]
 }
-answers = ""
+answer = ""
 # Use a service account.
 cred = credentials.Certificate(fb_credentials)
 db = firestore.client()
@@ -28,15 +28,15 @@ st.set_page_config(
     # initial_sidebar_state="collapsed",
    
 )
-doc_ref = db.collection("question1").document("eee")
 
 # Load custom CSS
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def submit():
+    doc_ref = db.collection("question1").document(st.session_state.widget)
     st.toast(f"You submitted {st.session_state.widget}")
-    doc_ref.set({"answer": answer})
+    doc_ref.set({"answer": st.session_state.widget})
     st.session_state.widget = ""
 # Main content area
 def main():
