@@ -21,10 +21,8 @@ fb_credentials = {"type": st.secrets.firebase["type"],
 
 # Use a service account.
 cred = credentials.Certificate(fb_credentials)
-
 db = firestore.client()
-doc_ref = db.collection("question1").document("alovelace")
-doc_ref.set({"first": "Ada", "last": "Lovelace", "born": 1815})
+
 
 # st.secrets["firebase"]['my_project_settings']
 # st.write(type(fb_credentials))
@@ -52,6 +50,7 @@ with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def submit():
+    doc_ref = db.collection("questions").document(st.session_state.widget))
     st.session_state.answers.append(st.session_state.widget)
     st.session_state.widget = ""
 # Main content area
@@ -98,14 +97,13 @@ def main():
     # Text input for answers
     answer = st.text_input("Enter your answer:", key="widget", on_change=submit)
     # Create a reference to the Google post.
-    doc_ref = db.collection("question1").document("OCKS6i08vu3ARi9S3yn8")
+  
+    answers = db.collection("question1")
+    docs = answers.stream()
     
-    # Then get the data at that reference.
-    doc = doc_ref.get()
-    
-    # Let's see what we got!
-    st.write("The id is: ", doc.id)
-    st.write("The contents are: ", doc.to_dict())
+    for doc in docs:
+        st.write(f"{doc.id} => {doc.to_dict()}")
+
     # When Enter is pressed
     # if answer:
     #     st.session_state.answers.append(answer)
