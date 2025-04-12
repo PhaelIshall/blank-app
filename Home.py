@@ -15,7 +15,7 @@ fb_credentials = {"type": st.secrets.firebase["type"],
   "client_x509_cert_url": st.secrets.firebase["client_x509_cert_url"],
   "universe_domain": st.secrets.firebase["universe_domain"]
 }
-
+answers = ""
 # Use a service account.
 cred = credentials.Certificate(fb_credentials)
 db = firestore.client()
@@ -36,7 +36,7 @@ with open('style.css') as f:
 
 def submit():
     st.toast(f"You submitted {st.session_state.widget}")
-    doc_ref.set({"answer": st.session_state.widget})
+    doc_ref.set({"answer": answer})
     st.session_state.widget = ""
 # Main content area
 def main():
