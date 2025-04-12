@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_gsheets import GSheetsConnection
 
 # Configure page settings
 st.set_page_config(
@@ -9,10 +8,6 @@ st.set_page_config(
     # initial_sidebar_state="collapsed",
    
 )
-
-conn = st.connection("gsheets", type=GSheetsConnection)
-df = conn.read()
-
 
 
 # pg = st.navigation([st.Page("page_1.py"), st.Page("page_2.py")])
@@ -55,8 +50,28 @@ def main():
             </div>
         """, unsafe_allow_html=True)
     # Print results.
-    for row in df.itertuples():
-        st.write(f"{row}")
+
+    
+    # Initialize session state for answers if it doesn't exist
+    if 'answers' not in st.session_state:
+        st.session_state.answers = []
+
+    st.title("Answer Collection")
+
+    # Text input for answers
+    answer = st.text_input("Enter your answer:", key="answer_input")
+
+    # When Enter is pressed
+    if answer:
+        st.session_state.answers.append(answer)
+        # Clear the input
+        st.session_state.answer = ""
+
+    # Display all answers
+    if st.session_state.answers:
+        st.write("Your answers:")
+        for i, ans in enumerate(st.session_state.answers, 1):
+            st.toast(f"You submitted {ans}")
 
     # Footer section
     st.markdown("""
