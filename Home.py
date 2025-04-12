@@ -84,7 +84,7 @@ def main():
     docs = answers.stream()
     
     for doc in docs:
-        st.badge(f"{doc.id}")
+        st.badge(doc.id)
 
     # When Enter is pressed
     # if answer:
