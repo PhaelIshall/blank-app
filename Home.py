@@ -2,23 +2,23 @@ import streamlit as st
 from google.cloud import firestore
 
 
-# fb_credentials = {"type": st.secrets["type"],
-#   "project_id": st.secrets["project_id"],
-#   "private_key_id": st.secrets["private_key_id"],
-#   "private_key": st.secrets["private_key"],
-#   "client_email": st.secrets["client_email"],
-#   "client_id": st.secrets["client_id"],
-#   "auth_uri": st.secrets["auth_uri"],
-#   "token_uri": st.secrets["token_uri"],
-#   "auth_provider_x509_cert_url": st.secrets["auth_provider_x509_cert_url"],
-#   "client_x509_cert_url": st.secrets["client_x509_cert_url"],
-#   "universe_domain": st.secrets["universe_domain"]
-# }
+fb_credentials = {"type": st.secrets.firebase["type"],
+  "project_id": st.secrets.firebase["project_id"],
+  "private_key_id": st.secrets.firebase["private_key_id"],
+  "private_key": st.secrets.firebase["private_key"],
+  "client_email": st.secrets.firebase["client_email"],
+  "client_id": st.secrets.firebase["client_id"],
+  "auth_uri": st.secrets.firebase["auth_uri"],
+  "token_uri": st.secrets.firebase["token_uri"],
+  "auth_provider_x509_cert_url": st.secrets.firebase["auth_provider_x509_cert_url"],
+  "client_x509_cert_url": st.secrets.firebase["client_x509_cert_url"],
+  "universe_domain": st.secrets.firebase["universe_domain"]
+}
 
 # st.secrets["firebase"]['my_project_settings']
-# st.write(type(fb_credentials))
+st.write(type(fb_credentials))
 # Authenticate to Firestore with the JSON account key.
-db = firestore.Client.from_service_account_json(**st.secrets.firebase)
+db = firestore.Client.from_service_account_json(fb_credentials)
 
 
 
