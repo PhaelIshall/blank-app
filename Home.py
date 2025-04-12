@@ -1,9 +1,7 @@
 import streamlit as st
-# from google.cloud import firestore
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
 
 fb_credentials = {"type": st.secrets.firebase["type"],
   "project_id": st.secrets.firebase["project_id"],
@@ -18,19 +16,9 @@ fb_credentials = {"type": st.secrets.firebase["type"],
   "universe_domain": st.secrets.firebase["universe_domain"]
 }
 
-
 # Use a service account.
 cred = credentials.Certificate(fb_credentials)
 db = firestore.client()
-
-
-# st.secrets["firebase"]['my_project_settings']
-# st.write(type(fb_credentials))
-# Authenticate to Firestore with the JSON account key.
-# db = firestore.Client.from_service_account_json(fb_credentials)
-
-
-
 
 # Configure page settings
 st.set_page_config(
@@ -40,19 +28,15 @@ st.set_page_config(
     # initial_sidebar_state="collapsed",
    
 )
-doc_ref = db.collection("question1").document(st.session_state.widget)
-
-
-# pg = st.navigation([st.Page("page_1.py"), st.Page("page_2.py")])
-# pg.run()
+doc_ref = db.collection("question1").document("eee")
 
 # Load custom CSS
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def submit():
+    st.toast(f"You submitted {st.session_state.widget}")
     doc_ref.set({"answer": st.session_state.widget})
-    st.session_state.answers.append(st.session_state.widget)
     st.session_state.widget = ""
 # Main content area
 def main():
@@ -90,9 +74,6 @@ def main():
 
     
     # Initialize session state for answers if it doesn't exist
-    if 'answers' not in st.session_state:
-        st.session_state.answers = []
-
     st.title("Answer Collection")
 
     # Text input for answers
@@ -111,11 +92,6 @@ def main():
     #     # Clear the input
     #     st.session_state.answer = ""
 
-    # Display all answers
-    if st.session_state.answers:
-        st.write("Your answers:")
-        for i, ans in enumerate(st.session_state.answers, 1):
-            st.toast(f"You submitted {ans}")
 
     # Footer section
     st.markdown("""
