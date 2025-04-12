@@ -56,7 +56,7 @@ def main():
         """, unsafe_allow_html=True)
     # Print results.
     for row in df.itertuples():
-        st.write(f"{row.name} has a :{row.pet}:")
+        st.write(f"{row}")
 
     # Footer section
     st.markdown("""
