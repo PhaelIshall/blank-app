@@ -34,6 +34,7 @@ def main():
         st.markdown("""
             <div class="card">
                 <h3>Learn the basiscs</h3>
+                <img src="detection.jpg" alt="picture of facial detection" class="card-image">
                 <p>Discover how AI facial recognition works and why bias can occur</p>
             </div>
         """, unsafe_allow_html=True)
