@@ -119,16 +119,17 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 }
 
 .subtitle {
+    text-align: center;
     font-size: 1.35rem;
     opacity: 0.95;
     font-weight: 500;
-    position: relative;
+    /* position: relative; */
     z-index: 2;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: -0.01em;
     max-width: 600px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    /* margin: 0 auto; */
+    /* padding: 0 1rem; */
 }
 
 /* Card styling */
