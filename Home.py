@@ -19,10 +19,8 @@ def main():
         <div class="header-container">
             <h1>Trusting AI</h1>
             <p style="text-align:center; font-size: 1.35rem;">An interactive journey into how AI systems work and why fairness matters</p>
-        </div>
-    """, unsafe_allow_html=True)
-
-    # Create three columns for a modern layout
+        </div>""", unsafe_allow_html=True)
+# Create three columns for a modern layout
     col1, col2 = st.columns([1,1])
 
 
