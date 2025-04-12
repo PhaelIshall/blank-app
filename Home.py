@@ -24,7 +24,6 @@ cred = credentials.Certificate(fb_credentials)
 
 app = firebase_admin.initialize_app(cred)
 
-db = firestore.client(
 # st.secrets["firebase"]['my_project_settings']
 # st.write(type(fb_credentials))
 # Authenticate to Firestore with the JSON account key.
