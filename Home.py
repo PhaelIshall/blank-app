@@ -17,6 +17,9 @@ st.set_page_config(
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+def submit():
+    st.session_state.answers.append(st.session_state.widget)
+    st.session_state.widget = ""
 # Main content area
 def main():
     # Header section with custom styling
@@ -59,13 +62,13 @@ def main():
     st.title("Answer Collection")
 
     # Text input for answers
-    answer = st.text_input("Enter your answer:", key="answer_input")
+    answer = st.text_input("Enter your answer:", key="widget", on_change=submit)
 
     # When Enter is pressed
-    if answer:
-        st.session_state.answers.append(answer)
-        # Clear the input
-        st.session_state.answer = ""
+    # if answer:
+    #     st.session_state.answers.append(answer)
+    #     # Clear the input
+    #     st.session_state.answer = ""
 
     # Display all answers
     if st.session_state.answers:
