@@ -1,5 +1,8 @@
 import streamlit as st
-from google.cloud import firestore
+# from google.cloud import firestore
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
 
 
 fb_credentials = {"type": st.secrets.firebase["type"],
@@ -15,10 +18,17 @@ fb_credentials = {"type": st.secrets.firebase["type"],
   "universe_domain": st.secrets.firebase["universe_domain"]
 }
 
+
+# Use a service account.
+cred = credentials.Certificate(fb_credentials)
+
+app = firebase_admin.initialize_app(cred)
+
+db = firestore.client(
 # st.secrets["firebase"]['my_project_settings']
-st.write(type(fb_credentials))
+# st.write(type(fb_credentials))
 # Authenticate to Firestore with the JSON account key.
-db = firestore.Client.from_service_account_json(fb_credentials)
+# db = firestore.Client.from_service_account_json(fb_credentials)
 
 
 
