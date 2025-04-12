@@ -84,8 +84,8 @@ def main():
     docs = answers.stream()
     
     for doc in docs:
-        # st.badge(doc.id)
-      st.markdown(":blue-badge[Home]")
+        st.badge(doc.id)
+      # st.markdown(":blue-badge[Home]")
 
     # When Enter is pressed
     # if answer:
