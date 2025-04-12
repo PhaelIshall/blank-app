@@ -15,10 +15,10 @@ with open('style.css') as f:
 # Main content area
 def main():
     # Header section with custom styling
-    st.markdown("""
+   st.markdown("""
         <div class="header-container">
             <h1>Trusting AI</h1>
-            <p class="subtitle">An interactive journey into how AI systems work and why fairness matters</p>
+            <p style="text-align:center; font-size: 1.35rem;">An interactive journey into how AI systems work and why fairness matters</p>
         </div>
     """, unsafe_allow_html=True)
 
