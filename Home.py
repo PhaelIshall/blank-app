@@ -1,4 +1,14 @@
 import streamlit as st
+from google.cloud import firestore
+
+
+fb_credentials = st.secrets["firebase"]
+
+# Authenticate to Firestore with the JSON account key.
+db = firestore.Client.from_service_account_json(fb_credentials)
+
+
+
 
 # Configure page settings
 st.set_page_config(
@@ -63,7 +73,15 @@ def main():
 
     # Text input for answers
     answer = st.text_input("Enter your answer:", key="widget", on_change=submit)
-
+    # Create a reference to the Google post.
+    doc_ref = db.collection("question1").document("OCKS6i08vu3ARi9S3yn8")
+    
+    # Then get the data at that reference.
+    doc = doc_ref.get()
+    
+    # Let's see what we got!
+    st.write("The id is: ", doc.id)
+    st.write("The contents are: ", doc.to_dict())
     # When Enter is pressed
     # if answer:
     #     st.session_state.answers.append(answer)
