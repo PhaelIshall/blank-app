@@ -22,7 +22,9 @@ fb_credentials = {"type": st.secrets.firebase["type"],
 # Use a service account.
 cred = credentials.Certificate(fb_credentials)
 
-app = firebase_admin.initialize_app(cred)
+db = firestore.client()
+doc_ref = db.collection("question1").document("alovelace")
+doc_ref.set({"first": "Ada", "last": "Lovelace", "born": 1815})
 
 # st.secrets["firebase"]['my_project_settings']
 # st.write(type(fb_credentials))
