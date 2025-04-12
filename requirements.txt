@@ -1,4 +1,5 @@
 streamlit
+firebase_admin
 google-cloud-firestore
 altair==5.5.0
 annotated-types==0.7.0
