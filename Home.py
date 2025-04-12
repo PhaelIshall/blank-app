@@ -16,7 +16,7 @@ fb_credentials = {
   "universe_domain": st.secrets["universe_domain"]
 }
 
-
+st.write(fb_credentials)
 # Authenticate to Firestore with the JSON account key.
 db = firestore.Client.from_service_account_json(fb_credentials)
 
