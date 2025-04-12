@@ -2,8 +2,7 @@ import streamlit as st
 from google.cloud import firestore
 
 
-fb_credentials = {
-  "type": st.secrets["type"],
+fb_credentials = {"type": st.secrets["type"],
   "project_id": st.secrets["project_id"],
   "private_key_id": st.secrets["private_key_id"],
   "private_key": st.secrets["private_key"],
