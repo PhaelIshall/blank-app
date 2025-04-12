@@ -18,7 +18,7 @@ def main():
     st.markdown("""
         <div class="header-container">
             <h1>Trusting AI</h1>
-            <p class="subtitle">An interactive journey into how AI systems work and why fairness matters</p>
+            <p class="subtitle" style="text-align: center;">An interactive journey into how AI systems work and why fairness matters</p>
         </div>
     """, unsafe_allow_html=True)
 
