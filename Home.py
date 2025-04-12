@@ -45,7 +45,7 @@ def main():
         st.markdown("""
             <div class="card">
                 <h2 style="color:black">Fact-checking</h2>
-                <p> Interract with a chatbot and ask it some of our suggested questions, see if these tools can make mistakes!</p>
+                <p> Interact with a chatbot and ask it some of our suggested questions, see if these tools can make mistakes!</p>
                 <img src="https://media.canva.com/v2/files/uri:ifs%3A%2F%2FM%2Fc1d3b292-ffd2-4c7d-8a73-a199bd9607de?csig=AAAAAAAAAAAAAAAAAAAAALjo0qJT2Oxw7L9MzrxIEOXTNESeowF1YVAXh976IbYI&exp=1744506393&signer=media-rpc&token=AAIAAU0AJGMxZDNiMjkyLWZmZDItNGM3ZC04YTczLWExOTliZDk2MDdkZQAAAAABliyvEajIqZ1TJSLqjIxd9u5WUNv2b57csGHWpUd6fF_v3o4T3Q" alt="Avatar" style="width:100%;border-radius: 20px; margin-top: 10px;">
             </div>
         """, unsafe_allow_html=True)
