@@ -2,11 +2,16 @@ import streamlit as st
 
 # Configure page settings
 st.set_page_config(
-    page_title="AI Outreach",
+    page_title="Welcome",
     page_icon="✨",
     layout="wide",
     # initial_sidebar_state="collapsed",
+   
 )
+
+
+# pg = st.navigation([st.Page("page_1.py"), st.Page("page_2.py")])
+# pg.run()
 
 # Load custom CSS
 with open('style.css') as f:
@@ -15,15 +20,17 @@ with open('style.css') as f:
 # Main content area
 def main():
     # Header section with custom styling
-   st.markdown("""
+    st.markdown("""
         <div class="header-container">
             <h1>Trusting AI</h1>
             <p style="text-align:center; font-size: 1.35rem;">An interactive journey into how AI systems work and why fairness matters</p>
-        </div>""", unsafe_allow_html=True)
+        </div>
+    """, unsafe_allow_html=True)
 
-    
-# Create three columns for a modern layout
+    # Create three columns for a modern layout
     col1, col2 = st.columns([1,1])
+
+
     with col1:
         st.markdown("""
             <div class="card">
