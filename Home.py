@@ -50,7 +50,7 @@ with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def submit():
-    doc_ref = db.collection("questions").document(st.session_state.widget))
+    doc_ref = db.collection("question1").document(st.session_state.widget)
     st.session_state.answers.append(st.session_state.widget)
     st.session_state.widget = ""
 # Main content area
