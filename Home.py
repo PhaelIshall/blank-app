@@ -82,9 +82,19 @@ def main():
   
     answers = db.collection("question1")
     docs = answers.stream()
-    
-    for doc in docs:
-      st.markdown(doc.id)
+    col1, col2, col3 = st.columns([1,1,1])
+    i = 0
+    for doc in docs: 
+      i+=1
+      if i%3== 0:
+        with col1:
+          st.button(doc, type="primary")
+      if i%2== 0:
+        with col2:
+          st.button(doc, type="secondary")
+      else:
+        with col3:
+          st.button(doc, type="tertiary")
 
     # When Enter is pressed
     # if answer:
