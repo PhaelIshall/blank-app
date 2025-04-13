@@ -73,8 +73,8 @@ def main():
     # Print results.
 
     st.markdown("""
-            <div class="card">
-                <h2 style="background-image: url('https://cdn.pixabay.com/photo/2017/06/15/11/49/question-mark-2405202_640.png'); background-size: cover; background-position: center;">>How can AI help us in our daily lives?</h2>
+            <div class="card" style="background-image: url('https://media.istockphoto.com/id/1296487954/vector/questions-marks-web-banner-colored-buttons-with-question-marks-multicolored-poster-for.jpg?s=612x612&w=0&k=20&c=27AkYXIkXMhuEhaFLqMSSY0EBa999F1CGA-cnbW_Mg4='); background-size: cover; background-position: center;>
+                <h2>How can AI help us in our daily lives?</h2>
                 <p> Type your answers below and let's discuss the answers. You will also be able to see your peers' responses. </p>            
             </div>
         """, unsafe_allow_html=True)
