@@ -74,7 +74,7 @@ def main():
 
     
     # Initialize session state for answers if it doesn't exist
-    st.title("Answer Collection")
+    st.title("How can AI help us in our daily lives?")
 
     # Text input for answers
     answer = st.text_input("Enter your answer:", key="widget", on_change=submit)
