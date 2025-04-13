@@ -74,13 +74,13 @@ def main():
 
     st.markdown("""
             <div class="card" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2-h0-c8HwrKm7tLa_tc8vUEFssuU3-Qy7_Q&s'); background-size: fit; background-position: center;">
-                <h2 style="color: white; background-color:black;">How can AI help us in our daily lives?</h2>
-                <p> Type your answers below and let's discuss the answers. You will also be able to see your peers' responses. </p>            
+                <h2 style="color: white; background-color:rgba(60, 60, 60,0.4);">How can AI help us in our daily lives?</h2>        
             </div>
         """, unsafe_allow_html=True)
 
 
     # Text input for answers
+    st.markdown("""<p> Type your answers below and let's discuss the answers. You will also be able to see your peers' responses. </p>""")    
     answer = st.text_input("Enter your answer:", key="widget", on_change=submit)
     # Create a reference to the Google post.
   
