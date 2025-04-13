@@ -12,7 +12,7 @@ with open('style.css') as f:
 st.markdown("""
     <div class="header-container">
         <h1>Chatbot</h1>
-        <p class="subtitle">Are you using this for homework? You might want to reconsider!</p>
+        <p style="text-align:center; font-size: 1.35rem;">Are you using this for homework? You might want to reconsider!</p>
     </div>
 """, unsafe_allow_html=True)
 
