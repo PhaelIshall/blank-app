@@ -80,7 +80,7 @@ def main():
 
 
     # Text input for answers
-    st.markdown("""<p> Type your answers below and let's discuss the answers. You will also be able to see your peers' responses. </p>""")    
+    st.markdown("Type your answers below and let's discuss the answers. You will also be able to see your peers' responses. ")    
     answer = st.text_input("Enter your answer:", key="widget", on_change=submit)
     # Create a reference to the Google post.
   
