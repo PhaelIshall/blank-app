@@ -88,13 +88,13 @@ def main():
       i+=1
       if i%3== 0:
         with col1:
-          st.button(doc, type="primary")
+          st.button(doc.id, type="primary")
       if i%2== 0:
         with col2:
-          st.button(doc, type="secondary")
+          st.button(doc.id, type="secondary")
       else:
         with col3:
-          st.button(doc, type="tertiary")
+          st.button(doc.id, type="tertiary")
 
     # When Enter is pressed
     # if answer:
