@@ -12,7 +12,7 @@ with open('style.css') as f:
 st.markdown("""
     <div class="header-container">
         <h1>Facial Recognition</h1>
-        <p class="subtitle">Interactive Demo</p>
+        <p style="text-align:center; font-size: 1.35rem;">Interactive Demo</p>
     </div>
 """, unsafe_allow_html=True)
 
