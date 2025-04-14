@@ -149,12 +149,25 @@ with tab3:
         docs = answers.stream()
         df = pd.DataFrame()
         r = []
+        filter_by = { 0: "Gender Prediction Results",   1: "Age Prediction Results"} 
+            st.markdown("#### Filter the results")
+            user_choice = st.segmented_control(
+                "type_result",
+                options=filter_by.keys(),
+                format_func=lambda option: filter_by[option],
+                label_visibility="collapsed"
+            )
+        if user_choice=="Gender Prediction Results":
+          choice = "gender_res"
+        else:
+          choice = "age_res"
+          
         for doc in docs: 
           # st.write(doc.to_dict())
           r.append(doc.to_dict()["answer"])
         df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res"])
         # st.bar_chart(df)
-        st.scatter_chart(df, x="race", y="gender", color="gender_res")
+        st.scatter_chart(df, x="race", y="gender", color=choice)
     else:  
         col1, col2 = st.columns(2)
         with col1:
