@@ -80,17 +80,21 @@ with tab2:
     df = pd.read_csv("fairface_results.txt")
     st.bar_chart(df, x="race", y="gender", stack=False, color='#9370DB', horizontal=True)
     st.bar_chart(df, x="race", y="age", stack=False, color='#DDA0DD', horizontal=True)
+
+
+    st.header("But the question is: How good was it for you? ")
     # Placeholder for demographic samples
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.subheader("Group A")
-        st.metric("Detection Rate", "95%")
-    with col2:
-        st.subheader("Group B")
-        st.metric("Detection Rate", "87%")
-    with col3:
-        st.subheader("Group C")
-        st.metric("Detection Rate", "92%")
+    
+    # col1, col2, col3 = st.columns(3)
+    # with col1:
+    #     st.subheader("Group A")
+    #     st.metric("Detection Rate", "95%")
+    # with col2:
+    #     st.subheader("Group B")
+    #     st.metric("Detection Rate", "87%")
+    # with col3:
+    #     st.subheader("Group C")
+    #     st.metric("Detection Rate", "92%")
 
 with tab3:
     st.header("Understanding the Results")
