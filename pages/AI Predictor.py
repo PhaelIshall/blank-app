@@ -96,13 +96,13 @@ with tab2:
     #     st.metric("Detection Rate", "92%")
 
 with tab3:
-    st.header("But the question is: How good was it for you? ")
+    st.header("But the question is: How good is the model for the people in this room?")
     st.write("""
     We saw how the demo was for the group of some random participants from a curated dataset. The real question is, how did it perform for you?
     """)
      
     # Feedback form
-    st.markdown("### Help us improve! Share your feedback:")
+
     
     col1, col2 = st.columns(2)
     
