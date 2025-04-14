@@ -120,16 +120,16 @@ with tab3:
         )
     with col2: 
         st.header("What did the model predict?")
-        selection_pred = st.segmented_control(
-            "Tool",
-            options=option_map.keys(),
-            format_func=lambda option: option_map[option],
-            selection_mode="single",
-        )
-        st.write(
-            "Your selected option: "
-            f"{None if selection_pred is None else option_map[selection_pred]}"
-        )
+        # selection_pred = st.segmented_control(
+        #     "Tool",
+        #     options=option_map.keys(),
+        #     format_func=lambda option: option_map[option],
+        #     selection_mode="single",
+        # )
+        # st.write(
+        #     "Your selected option: "
+        #     f"{None if selection_pred is None else option_map[selection_pred]}"
+        # )
     
     # st.subheader("Key Points to Notice:")
     # st.markdown("""
