@@ -58,9 +58,11 @@ with open('style.css') as f:
 def submit():
     st.session_state.submitted = True
     doc_ref = db.collection("question2").document(str(uuid.uuid4()))
-    doc_ref.set({"answer" : {"gender": st.session_state.gender, "age": st.session_state.age, 
-                            "pred_gender": st.session_state.pred_gender, "pred_age": st.session_state.pred_age, "race": st.session_state.race,
-                            "gender_result": st.session_state.gender_result , "age_result": st.session_state.age_result }})
+    doc_ref.set({"answer" : [st.session_state.race, st.session_state.gender_result, st.session_state.age_result]})
+                 
+                 # {"gender": st.session_state.gender, "age": st.session_state.age, 
+                 #            "pred_gender": st.session_state.pred_gender, "pred_age": st.session_state.pred_age, "race": st.session_state.race,
+                 #            "gender_result": st.session_state.gender_result , "age_result": st.session_state.age_result }})
 
 
 # Load custom CSS
