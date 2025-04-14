@@ -100,15 +100,15 @@ def main():
       if i%3== 0:
         with col1:
           st.markdown('<style>div.stButton > button:first-child { class: primary; }</style>', unsafe_allow_html=True)
-          st.button(doc.id, type="primary")
+          # st.button(doc.id, type="primary")
       elif i%2== 0:
         with col2:
           st.markdown('<style>div.stButton > button:nth-child(2) { class: secondary; }</style>', unsafe_allow_html=True)
-          st.button(doc.id, type="secondary")
+          # st.button(doc.id, type="secondary")
       else:
         with col3:
           st.markdown('<style>div.stButton > button:nth-child(3) { class: success; }</style>', unsafe_allow_html=True)
-          st.button(doc.id, type="tertiary")
+          # st.button(doc.id, type="tertiary")
 
     # When Enter is pressed
     # if answer:
