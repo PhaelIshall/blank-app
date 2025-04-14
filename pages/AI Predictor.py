@@ -40,7 +40,7 @@ st.set_page_config(
    
 )
 st.session_state.submitted = False
-if gender not in st.session_state:
+if 'gender' not in st.session_state:
     st.session_state.gender = ""
     st.session_state.age = ""
     st.session_state.pred_gender = ""
