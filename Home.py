@@ -20,6 +20,7 @@ answer = ""
 
 # Use a service account.
 cred = credentials.Certificate(fb_credentials)
+app = firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 # Configure page settings
