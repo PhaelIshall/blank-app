@@ -153,7 +153,8 @@ with tab3:
           # st.write(doc.to_dict())
           r.append(doc.to_dict()["answer"])
         df = pd.DataFrame(r)
-        st.bar_chart(df)
+        # st.bar_chart(df)
+        st.scatter_chart(df)
     else:  
         col1, col2 = st.columns(2)
         with col1:
