@@ -5,6 +5,48 @@ import pandas as pd
 # Page config
 # st.set_page_config(page_title="Facial Recognition", page_icon="📊")
 
+
+fb_credentials = {"type": st.secrets.firebase["type"],
+  "project_id": st.secrets.firebase["project_id"],
+  "private_key_id": st.secrets.firebase["private_key_id"],
+  "private_key": st.secrets.firebase["private_key"],
+  "client_email": st.secrets.firebase["client_email"],
+  "client_id": st.secrets.firebase["client_id"],
+  "auth_uri": st.secrets.firebase["auth_uri"],
+  "token_uri": st.secrets.firebase["token_uri"],
+  "auth_provider_x509_cert_url": st.secrets.firebase["auth_provider_x509_cert_url"],
+  "client_x509_cert_url": st.secrets.firebase["client_x509_cert_url"],
+  "universe_domain": st.secrets.firebase["universe_domain"]
+}
+
+# Use a service account.
+cred = credentials.Certificate(fb_credentials)
+# app = firebase_admin.initialize_app(cred)
+try:
+    firebase_admin.get_app()
+except ValueError as e:
+    firebase_admin.initialize_app(cred)
+db = firestore.client()
+
+# Configure page settings
+st.set_page_config(
+    page_title="Welcome",
+    page_icon="✨",
+    layout="wide",
+    # initial_sidebar_state="collapsed",
+   
+)
+
+# Load custom CSS
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+def submit():
+    doc_ref = db.collection("question2").document(st.session_state.widget)
+    doc_ref.set({"answer": {"gender": , "age": , "pred_gender": , "pred_age": , "race": , "gender_result": , "age_result": }})
+    st.session_state.widget = ""
+
+st.session_state.submitted = False
 # Load custom CSS
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -62,11 +104,6 @@ def highlightFace(net, frame, conf_threshold=0.7):
     return frameOpencvDnn,faceBoxes
 
 
-# parser=argparse.ArgumentParser()
-# parser.add_argument('--image')
-
-# args=parser.parse_args()
-
 tab1, tab2, tab3 = st.tabs(["Live Demo", "Demographic Comparison", "How it Works"])
     
 with tab2:
@@ -75,25 +112,11 @@ with tab2:
     Explore how facial recognition accuracy varies across different demographic groups.
     This analysis helps demonstrate potential biases in AI systems.
     """)
-
    
     df = pd.read_csv("fairface_results.txt")
     st.bar_chart(df, x="race", y="gender", stack=False, color='#9370DB', horizontal=True)
     st.bar_chart(df, x="race", y="age", stack=False, color='#DDA0DD', horizontal=True)
     st.bar_chart(df, x="race", y="participants", stack=False, color='#DAA520', horizontal=True)
-
-    # Placeholder for demographic samples
-    
-    # col1, col2, col3 = st.columns(3)
-    # with col1:
-    #     st.subheader("Group A")
-    #     st.metric("Detection Rate", "95%")
-    # with col2:
-    #     st.subheader("Group B")
-    #     st.metric("Detection Rate", "87%")
-    # with col3:
-    #     st.subheader("Group C")
-    #     st.metric("Detection Rate", "92%")
 
 with tab3:
     st.header("But the question is:")
@@ -103,52 +126,58 @@ with tab3:
     """)
      
     # Feedback form
-
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.markdown("#### Your actual gender:")
-        user_gender = st.segmented_control(
-            "actual_gender",
-            options=["Male", "Female", "Other"],
-            label_visibility="collapsed"
+    if st.session_state.submitted:
+        
+    else:  
+        col1, col2 = st.columns(2)
+        with col1:
+            gender_map_options = { 0: ":material/female:",   1: ":material/male:", "2": ":material/transgender:"} 
+            st.markdown("#### Your actual gender:")
+            user_gender = st.segmented_control(
+                "actual_gender",
+                options=gender_map_options.keys(),
+                label_visibility="collapsed"
+            )
+        pred_gender_map_options = { 0: ":material/female:",   1: ":material/male:"} 
+        with col2:
+            st.markdown("#### Model's prediction:")
+            model_gender = st.segmented_control(
+                "predicted_gender",
+                options=pred_gender_map_options.keys(),
+                label_visibility="collapsed",
+            )
+        st.write(
+            "Your selected option: "
+            f"{None if user_gender is None else gender_map_options[user_gender]}"
         )
-    
-    with col2:
-        st.markdown("#### Model's prediction:")
-        model_gender = st.segmented_control(
-            "predicted_gender",
-            options=["Male", "Female"],
-            label_visibility="collapsed",
+        st.write(
+            "Your selected option: "
+            f"{None if model_gender is None else pred_gender_map_options[model_gender]}"
         )
-    
-    st.markdown("---")
-    
-    col3, col4 = st.columns(2)
-    
-    with col3:
-        st.markdown("#### Your actual age group:")
-        user_age = st.segmented_control(
-            "actual_age",
-            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+ "],
-            label_visibility="collapsed"
-        )
-    
-    with col4:
-        st.markdown("#### Model's prediction:")
-        model_age = st.segmented_control(
-            "predicted_age",
-            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
-            label_visibility="collapsed",
-        )
-    
-    st.markdown("---")
-    race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
-    user_race = st.segmented_control("race", options=race_options)
-    
-    if st.button("Submit Feedback"):
-        st.success("Thank you for your feedback! This helps us understand and improve our model's performance across different demographics.")
+        
+        st.markdown("---")
+        col3, col4 = st.columns(2)
+        with col3:
+            st.markdown("#### Your actual age group:")
+            user_age = st.segmented_control(
+                "actual_age",
+                options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+ "],
+                label_visibility="collapsed"
+            )
+        with col4:
+            st.markdown("#### Model's prediction:")
+            model_age = st.segmented_control(
+                "predicted_age",
+                options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
+                label_visibility="collapsed",
+            )
+        
+        st.markdown("---")
+        race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
+        user_race = st.segmented_control("race", options=race_options)
+        
+        if st.button("Submit Feedback"):
+            st.success("Thank you for your feedback! This helps us understand and improve our model's performance across different demographics.")
     # col1, col2 = st.columns(2)
     # with col1: 
     #     st.header("What is your gender?")
