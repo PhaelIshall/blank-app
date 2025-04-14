@@ -77,7 +77,8 @@ with tab2:
     """)
 
    
-    df = pd.read_csv("fairface_results.txt")
+    df = pd.read_csv("fairface_results.txt").T
+    df.columns = df.iloc[0]
     st.bar_chart(df)
     # Placeholder for demographic samples
     col1, col2, col3 = st.columns(3)
