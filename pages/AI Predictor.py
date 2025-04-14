@@ -152,7 +152,7 @@ with tab3:
         for doc in docs: 
           # st.write(doc.to_dict())
           r.append(doc.to_dict()["answer"])
-        df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res")
+        df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res"])
         # st.bar_chart(df)
         st.scatter_chart(df, x="race", y="gender", color="gender_res")
     else:  
