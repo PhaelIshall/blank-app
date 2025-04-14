@@ -206,7 +206,8 @@ with tab3:
         st.session_state.gender_result = (user_gender==model_gender)
         st.session_state.age_result = (user_age==model_age)
         if st.button("Submit Feedback"):
-            st.success("Thank you for your feedback! This helps us understand and improve our model's performance across different demographics.")
+            submit()
+            st.success("Thank you for your feedback! Now let's have a look at everyone's results!")
     # col1, col2 = st.columns(2)
     # with col1: 
     #     st.header("What is your gender?")
