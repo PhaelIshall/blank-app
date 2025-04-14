@@ -50,6 +50,7 @@ if 'gender' not in st.session_state:
     st.session_state.race = ""
     st.session_state.gender_result = False
     st.session_state.age_result = False
+    st.session_state.choice = ""
 
 # Load custom CSS
 with open('style.css') as f:
@@ -100,7 +101,13 @@ def render_instructions():
         - All processing is done locally in your browser
         - No images are stored or transmitted
         """)
-
+def display_chart():
+  if user_choice=="Gender Prediction Results":
+      choice = "gender_res"
+  else:
+      choice = "age_res"
+  st.scatter_chart(df, x="race", y="gender", color=choice)
+   
 def highlightFace(net, frame, conf_threshold=0.7):
     frameOpencvDnn=frame.copy()
     frameHeight=frameOpencvDnn.shape[0]
@@ -151,23 +158,20 @@ with tab3:
         r = []
         filter_by = { 0: "Gender Prediction Results",   1: "Age Prediction Results"} 
         st.markdown("#### Filter the results")
-        user_choice = st.segmented_control(
+        for doc in docs: 
+          r.append(doc.to_dict()["answer"])
+        df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res"])
+        st.session_state.choice = st.segmented_control(
             "type_result",
             options=filter_by.keys(),
             format_func=lambda option: filter_by[option],
-            label_visibility="collapsed"
+            label_visibility="collapsed",
+            on_change=display_chart
         )
-        if user_choice=="Gender Prediction Results":
-          choice = "gender_res"
-        else:
-          choice = "age_res"
+        
           
-        for doc in docs: 
-          # st.write(doc.to_dict())
-          r.append(doc.to_dict()["answer"])
-        df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res"])
-        # st.bar_chart(df)
-        st.scatter_chart(df, x="race", y="gender", color=choice)
+       
+        
     else:  
         col1, col2 = st.columns(2)
         with col1:
