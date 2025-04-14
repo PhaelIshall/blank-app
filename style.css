@@ -201,6 +201,23 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
     z-index: 2;
 }
 /* Streamlit elements customization */
+.stButton>button {
+    background: linear-gradient(135deg, #814bff, #d04ef8);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(26, 24, 143, 0.2);
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(100, 103, 243, 0.3);
+}
+
+/* Primary Button */
 .stButton.primary>button {
     background: linear-gradient(135deg, #814bff, #d04ef8);
     color: white;
@@ -217,6 +234,38 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
     box-shadow: 0 6px 16px rgba(100, 103, 243, 0.3);
 }
 
+/* Secondary Button */
+.stButton.secondary>button {
+    background: linear-gradient(135deg, #34c2eb, #3498db);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Success Button */
+.stButton.success>button {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* Danger Button */
+.stButton.danger>button {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
 /* Sidebar styling */
 /* .css-1d391kg {
     padding: 2rem 1rem;
