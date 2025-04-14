@@ -162,6 +162,7 @@ with tab3:
             options=filter_by.keys(),
             format_func=lambda option: filter_by[option],
             label_visibility="collapsed",
+            on_change=st.rerun
         )
       
         if st.session_state.choice=="Gender Prediction Results":
