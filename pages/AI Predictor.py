@@ -100,26 +100,78 @@ with tab3:
     st.write("""
     We saw how the demo was for the group of some random participants from a curated dataset. The real question is, how did it perform for you?
     """)
+     
+    # Feedback form
+    st.markdown("### Help us improve! Share your feedback:")
+    
     col1, col2 = st.columns(2)
-    with col1: 
-        st.header("What is your gender?")
-        option_map = {
-        0: ":material/girl:",
-        1: ":material/boy:",
-        }
+    
+    with col1:
+        st.markdown("#### Your actual gender:")
+        user_gender = st.segmented_control(
+            "actual_gender",
+            options=["Male", "Female", "Other"],
+            label_visibility="collapsed"
+        )
+    
+    with col2:
+        st.markdown("#### Model's prediction:")
+        model_gender = st.segmented_control(
+            "predicted_gender",
+            options=["Male", "Female"],
+            label_visibility="collapsed",
+            disabled=True,
+            value=gender
+        )
+    
+    st.markdown("---")
+    
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        st.markdown("#### Your actual age group:")
+        user_age = st.segmented_control(
+            "actual_age",
+            options=["0-12", "13-19", "20-29", "30-39", "40-49", "50+"],
+            label_visibility="collapsed"
+        )
+    
+    with col4:
+        st.markdown("#### Model's prediction:")
+        model_age = st.segmented_control(
+            "predicted_age",
+            options=["(0-2)", "(4-6)", "(8-12)", "(15-20)", "(25-32)", "(38-43)", "(48-53)", "(60-100)"],
+            label_visibility="collapsed",
+            disabled=True,
+            value=age
+        )
+    
+    st.markdown("---")
+    race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
+    user_race = st.segmented_control("race", options=race_options, label="Your race/ethnicity:")
+    
+    if st.button("Submit Feedback"):
+        st.success("Thank you for your feedback! This helps us understand and improve our model's performance across different demographics.")
+    # col1, col2 = st.columns(2)
+    # with col1: 
+    #     st.header("What is your gender?")
+    #     option_map = {
+    #     0: ":material/girl:",
+    #     1: ":material/boy:",
+    #     }
         
-        selection = st.segmented_control(
-            "Tool",
-            options=option_map.keys(),
-            format_func=lambda option: option_map[option],
-            selection_mode="single",
-        )
-        st.write(
-            "Your selected option: "
-            f"{None if selection is None else option_map[selection]}"
-        )
-    with col2: 
-        st.header("What did the model predict?")
+    #     selection = st.segmented_control(
+    #         "Tool",
+    #         options=option_map.keys(),
+    #         format_func=lambda option: option_map[option],
+    #         selection_mode="single",
+    #     )
+    #     st.write(
+    #         "Your selected option: "
+    #         f"{None if selection is None else option_map[selection]}"
+    #     )
+    # with col2: 
+    #     st.header("What did the model predict?")
         # selection_pred = st.segmented_control(
         #     "Tool",
         #     options=option_map.keys(),
