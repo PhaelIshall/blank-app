@@ -150,7 +150,8 @@ with tab3:
         df = pd.DataFrame()
         r = []
         for doc in docs: 
-          r.append(doc.to_dict())
+          st.write(doc.to_dict())
+          # r.append(doc.to_dict())
         df = pd.DataFrame(r)
         st.bar_chart(df)
     else:  
