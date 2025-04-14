@@ -102,7 +102,7 @@ def render_instructions():
         - No images are stored or transmitted
         """)
 def display_chart():
-  if user_choice=="Gender Prediction Results":
+  if st.session_state.choice=="Gender Prediction Results":
       choice = "gender_res"
   else:
       choice = "age_res"
