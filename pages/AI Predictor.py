@@ -118,7 +118,7 @@ with tab3:
             "Your selected option: "
             f"{None if selection is None else option_map[selection]}"
         )
-     with col2: 
+    with col2: 
         st.header("What did the model predict?")
         option_map = {
         0: ":material/girl:",
