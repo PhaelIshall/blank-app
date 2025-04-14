@@ -125,7 +125,7 @@ with tab3:
         1: ":material/boy:",
         }
         
-        selection = st.segmented_control(
+        selection_pred = st.segmented_control(
             "Tool",
             options=option_map.keys(),
             format_func=lambda option: option_map[option],
@@ -133,7 +133,7 @@ with tab3:
         )
         st.write(
             "Your selected option: "
-            f"{None if selection is None else option_map[selection]}"
+            f"{None if selection_pred is None else option_map[selection_pred]}"
         )
     
     # st.subheader("Key Points to Notice:")
