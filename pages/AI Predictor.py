@@ -149,11 +149,11 @@ with tab3:
         st.markdown("#### Filter the results")
         for doc in docs: 
           r.append(doc.to_dict()["answer"])
-        df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res"])
+        df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
         st.markdown("### Gender Prediction Results")
-        st.scatter_chart(df, x="race", y="gender", color="gender_res")
+        st.scatter_chart(df, x="race", y="gender", color="gender results", size=100)
         st.markdown("### Race Prediction Results")
-        st.scatter_chart(df, x="race", y="gender", color="age_res")
+        st.scatter_chart(df, x="race", y="gender", color="age results", size=100)
             
         
     else:  
