@@ -170,14 +170,7 @@ with tab3:
                 format_func=lambda option: pred_gender_map_options[option],
                 label_visibility="collapsed",
             )
-        # st.write(
-        #     "Your selected option: "
-        #     f"{None if user_gender is None else gender_map_options[user_gender]}"
-        # )
-        # st.write(
-        #     "Your selected option: "
-        #     f"{None if model_gender is None else pred_gender_map_options[model_gender]}"
-        # )
+
         st.session_state.gender = user_gender
         st.session_state.pred_gender = model_gender
 
@@ -199,12 +192,6 @@ with tab3:
             )
         st.session_state.age = user_age
         st.session_state.pred_age = model_age
-      
-        st.write(
-            "Your selected option: "
-            f"{None if model_age is None else model_age}"
-        )
-        
         st.markdown("---")
         race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
         user_race = st.segmented_control("race", options=race_options)
@@ -213,39 +200,9 @@ with tab3:
         st.session_state.race = user_race
         st.session_state.gender_result = (user_gender==model_gender)
         st.session_state.age_result = (user_age==model_age)
-        if st.button("Submit Feedback"):
-            submit()
+        if st.button("Submit Feedback", on_click=submit):
             st.success("Thank you for your feedback! Now let's have a look at everyone's results!")
-    # col1, col2 = st.columns(2)
-    # with col1: 
-    #     st.header("What is your gender?")
-    #     option_map = {
-    #     0: ":material/girl:",
-    #     1: ":material/boy:",
-    #     }
-        
-    #     selection = st.segmented_control(
-    #         "Tool",
-    #         options=option_map.keys(),
-    #         format_func=lambda option: option_map[option],
-    #         selection_mode="single",
-    #     )
-    #     st.write(
-    #         "Your selected option: "
-    #         f"{None if selection is None else option_map[selection]}"
-    #     )
-    # with col2: 
-    #     st.header("What did the model predict?")
-        # selection_pred = st.segmented_control(
-        #     "Tool",
-        #     options=option_map.keys(),
-        #     format_func=lambda option: option_map[option],
-        #     selection_mode="single",
-        # )
-        # st.write(
-        #     "Your selected option: "
-        #     f"{None if selection_pred is None else option_map[selection_pred]}"
-        # )
+
     
     # st.subheader("Key Points to Notice:")
     # st.markdown("""
