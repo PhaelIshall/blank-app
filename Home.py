@@ -99,15 +99,15 @@ def main():
       i+=1
       if i%3== 0:
         with col1:
-          st.markdown(f'<button class="success"> {doc} </button>', unsafe_allow_html=True)
+          st.markdown(f'<button class="success"> {doc.id} </button>', unsafe_allow_html=True)
           # st.button(doc.id, type="primary")
       elif i%2== 0:
         with col2:
-          st.markdown(f'<button class="success"> {doc} </button>', unsafe_allow_html=True)
+          st.markdown(f'<button class="success"> {doc.id} </button>', unsafe_allow_html=True)
           # st.button(doc.id, type="secondary")
       else:
         with col3:
-          st.markdown(f'<button class="success"> {doc} </button>', unsafe_allow_html=True)
+          st.markdown(f'<button class="success"> {doc.id} </button>', unsafe_allow_html=True)
           # st.button(doc.id, type="tertiary")
 
     # When Enter is pressed
