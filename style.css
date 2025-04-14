@@ -235,7 +235,7 @@ button:hover {
 }
 
 /* Secondary Button */
-secondary {
+.secondary {
     background: linear-gradient(135deg, #34c2eb, #3498db);
     color: white;
     border: none;
