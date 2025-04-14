@@ -80,7 +80,7 @@ with tab2:
     df = pd.read_csv("fairface_results.txt")
     st.bar_chart(df, x="race", y="gender", stack=False, color='#9370DB', horizontal=True)
     st.bar_chart(df, x="race", y="age", stack=False, color='#DDA0DD', horizontal=True)
-
+    st.bar_chart(df, x="race", y="total", stack=False, color='#DAA520', horizontal=True)
 
     st.header("But the question is: How good was it for you? ")
     # Placeholder for demographic samples
