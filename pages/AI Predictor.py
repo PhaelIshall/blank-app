@@ -75,7 +75,10 @@ with tab2:
     Explore how facial recognition accuracy varies across different demographic groups.
     This analysis helps demonstrate potential biases in AI systems.
     """)
-    
+
+   
+    df = pd.read_csv("fairface_results.txt")
+    st.bar_chart(df)
     # Placeholder for demographic samples
     col1, col2, col3 = st.columns(3)
     with col1:
