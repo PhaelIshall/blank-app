@@ -142,7 +142,10 @@ with tab3:
      
     # Feedback form
     if st.session_state.submitted:
-        st.write("done")
+        answers = db.collection("question2")
+        docs = answers.stream()
+        for doc in docs: 
+          st.write(doc.to_dict())
     else:  
         col1, col2 = st.columns(2)
         with col1:
