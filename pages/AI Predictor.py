@@ -101,12 +101,7 @@ def render_instructions():
         - All processing is done locally in your browser
         - No images are stored or transmitted
         """)
-def display_chart():
-  if st.session_state.choice=="Gender Prediction Results":
-      choice = "gender_res"
-  else:
-      choice = "age_res"
-  st.scatter_chart(df, x="race", y="gender", color=choice)
+
    
 def highlightFace(net, frame, conf_threshold=0.7):
     frameOpencvDnn=frame.copy()
@@ -169,8 +164,13 @@ with tab3:
             on_change=display_chart
         )
         
-          
-       
+        def display_chart():
+          if st.session_state.choice=="Gender Prediction Results":
+              choice = "gender_res"
+          else:
+              choice = "age_res"
+          st.scatter_chart(df, x="race", y="gender", color=choice)
+                 
         
     else:  
         col1, col2 = st.columns(2)
