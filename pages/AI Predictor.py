@@ -151,9 +151,9 @@ with tab3:
           r.append(doc.to_dict()["answer"])
         df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
         st.markdown("### Gender Prediction Results")
-        st.scatter_chart(df, x="race", y="gender", color="gender results", size=100)
+        st.scatter_chart(df, x="race", y="gender", y_label="Gender: 0:Female, 1:Male: 2:Other", color="gender results", size=100)
         st.markdown("### Race Prediction Results")
-        st.scatter_chart(df, x="race", y="gender", color="age results", size=100)
+        st.scatter_chart(df, x="race", y="gender", y_label="Gender: 0:Female, 1:Male: 2:Other", color="age results", size=100)
             
         
     else:  
