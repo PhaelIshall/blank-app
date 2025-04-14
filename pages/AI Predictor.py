@@ -148,9 +148,10 @@ with tab3:
         answers = db.collection("question2")
         docs = answers.stream()
         df = pd.DataFrame()
+        r = []
         for doc in docs: 
-          new_df = pd.DataFrame([doc.to_dict()])
-          df = pd.concat([df, new_df], ignore_index=True)
+          r.append(docs[doc])
+        df = pd.DataFrame(r)
         st.bar_chart(df)
     else:  
         col1, col2 = st.columns(2)
