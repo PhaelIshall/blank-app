@@ -43,7 +43,7 @@ with open('style.css') as f:
 
 def submit():
     doc_ref = db.collection("question2").document(st.session_state.widget)
-    doc_ref.set({"answer": {"gender": , "age": , "pred_gender": , "pred_age": , "race": , "gender_result": , "age_result": }})
+    # doc_ref.set({"answer": {"gender": , "age": , "pred_gender": , "pred_age": , "race": , "gender_result": , "age_result": }})
     st.session_state.widget = ""
 
 st.session_state.submitted = False
