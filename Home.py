@@ -64,7 +64,7 @@ def main():
             <div class="card">
                 <h2 style="color:black">Facial Recognition</h2>
                 <p> Discover how AI facial recognition works and why bias happens with our interactive AI predictor! </p>
-                <img src="https://drive.google.com/file/d/1Sf2VO46-C8XJKFl3B1XUZhliFuHorRmV/preview" alt="Avatar" style="width:100%;border-radius: 20px; margin-top: 10px;">
+                <img src="https://drive.google.com/file/d/1LTC9xzdbmG_eZ62CFq6sH1OvD5SBxuev/view?usp=sharing" alt="Avatar" style="width:100%;border-radius: 20px; margin-top: 10px;">
             
             </div>
         """, unsafe_allow_html=True)
