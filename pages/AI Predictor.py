@@ -39,17 +39,27 @@ st.set_page_config(
     # initial_sidebar_state="collapsed",
    
 )
+st.session_state.submitted = False
+st.session_state.gender = False
+st.session_state.age = False
+st.session_state.pred_gender = False
+st.session_state.pred_age = False
+st.session_state.race = False
+st.session_state.gender_result = False
+st.session_state.age_result = False
 
 # Load custom CSS
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 def submit():
+    st.session_state.submitted = True
     doc_ref = db.collection("question2").document(st.session_state.widget)
-    # doc_ref.set({"answer": {"gender": , "age": , "pred_gender": , "pred_age": , "race": , "gender_result": , "age_result": }})
-    st.session_state.widget = ""
+    doc_ref.set({"answer": {"gender": st.session_state.gender, "age": st.session_state.age, 
+                            "pred_gender": st.session_state.pred_gender, "pred_age": st.session_state.pred_age, "race": st.session_state.race = False,
+                            "gender_result": st.session_state.gender_result , "age_result": st.session_state.age_result }})
 
-st.session_state.submitted = False
+
 # Load custom CSS
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -151,15 +161,17 @@ with tab3:
                 format_func=lambda option: pred_gender_map_options[option],
                 label_visibility="collapsed",
             )
-        st.write(
-            "Your selected option: "
-            f"{None if user_gender is None else gender_map_options[user_gender]}"
-        )
-        st.write(
-            "Your selected option: "
-            f"{None if model_gender is None else pred_gender_map_options[model_gender]}"
-        )
-        
+        # st.write(
+        #     "Your selected option: "
+        #     f"{None if user_gender is None else gender_map_options[user_gender]}"
+        # )
+        # st.write(
+        #     "Your selected option: "
+        #     f"{None if model_gender is None else pred_gender_map_options[model_gender]}"
+        # )
+        st.session_state.gender = user_gender
+        st.session_state.pred_gender = model_gender
+
         st.markdown("---")
         col3, col4 = st.columns(2)
         with col3:
@@ -176,11 +188,22 @@ with tab3:
                 options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
                 label_visibility="collapsed",
             )
+        st.session_state.age = user_age
+        st.session_state.pred_age = model_age
+      
+        st.write(
+            "Your selected option: "
+            f"{None if model_age is None else model_age}"
+        )
         
         st.markdown("---")
         race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
         user_race = st.segmented_control("race", options=race_options)
-        
+
+
+        st.session_state.race = user_race
+        st.session_state.gender_result = (user_gender==model_gender)
+        st.session_state.age_result = (user_age==model_age)
         if st.button("Submit Feedback"):
             st.success("Thank you for your feedback! This helps us understand and improve our model's performance across different demographics.")
     # col1, col2 = st.columns(2)
