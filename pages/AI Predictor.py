@@ -156,22 +156,19 @@ with tab3:
         for doc in docs: 
           r.append(doc.to_dict()["answer"])
         df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res"])
-
-        def display_chart():
-          if st.session_state.choice=="Gender Prediction Results":
-              choice = "gender_res"
-          else:
-              choice = "age_res"
-          st.scatter_chart(df, x="race", y="gender", color=choice)
-             
+     
         st.session_state.choice = st.segmented_control(
             "type_result",
             options=filter_by.keys(),
             format_func=lambda option: filter_by[option],
             label_visibility="collapsed",
-            on_change=display_chart
         )
-        
+      
+        if st.session_state.choice=="Gender Prediction Results":
+              choice = "gender_res"
+        else:
+              choice = "age_res"
+        st.scatter_chart(df, x="race", y="gender", color=choice)
             
         
     else:  
