@@ -2,6 +2,9 @@ import streamlit as st
 import cv2 
 import numpy as np
 import pandas as pd
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
 # Page config
 # st.set_page_config(page_title="Facial Recognition", page_icon="📊")
 
