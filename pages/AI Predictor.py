@@ -50,7 +50,6 @@ if 'gender' not in st.session_state:
     st.session_state.race = ""
     st.session_state.gender_result = False
     st.session_state.age_result = False
-    st.session_state.choice = ""
 
 # Load custom CSS
 with open('style.css') as f:
@@ -61,11 +60,6 @@ def submit():
     doc_ref = db.collection("question2").document(str(uuid.uuid4()))
     doc_ref.set({"answer" : [st.session_state.race, st.session_state.gender, st.session_state.gender_result, st.session_state.age_result]})
                  
-                 # {"gender": st.session_state.gender, "age": st.session_state.age, 
-                 #            "pred_gender": st.session_state.pred_gender, "pred_age": st.session_state.pred_age, "race": st.session_state.race,
-                 #            "gender_result": st.session_state.gender_result , "age_result": st.session_state.age_result }})
-
-
 # Load custom CSS
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -156,20 +150,10 @@ with tab3:
         for doc in docs: 
           r.append(doc.to_dict()["answer"])
         df = pd.DataFrame(r, columns=["race", "gender", "gender_res", "age_res"])
-     
-        st.session_state.choice = st.segmented_control(
-            "type_result",
-            options=filter_by.keys(),
-            format_func=lambda option: filter_by[option],
-            label_visibility="collapsed",
-            on_change=st.rerun
-        )
-      
-        if st.session_state.choice=="Gender Prediction Results":
-              choice = "gender_res"
-        else:
-              choice = "age_res"
-        st.scatter_chart(df, x="race", y="gender", color=choice)
+        st.markdown("### Gender Prediction Results")
+        st.scatter_chart(df, x="race", y="gender", color="gender_res")
+        st.markdown("### Race Prediction Results")
+        st.scatter_chart(df, x="race", y="gender", color="age_res")
             
         
     else:  
