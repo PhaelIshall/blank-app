@@ -16,6 +16,8 @@ fb_credentials = {"type": st.secrets.firebase["type"],
   "universe_domain": st.secrets.firebase["universe_domain"]
 }
 answer = ""
+firebase_admin.get_app(name='[DEFAULT]')
+
 # Use a service account.
 cred = credentials.Certificate(fb_credentials)
 db = firestore.client()
