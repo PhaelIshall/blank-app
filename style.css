@@ -218,8 +218,8 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 } */
 
 /* Primary Button */
-.stButton.primary>button {
-    background-color: red;
+.primary {
+    background: linear-gradient(135deg, #814bff, #d04ef8);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -229,14 +229,14 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
     box-shadow: 0 4px 12px rgba(26, 24, 143, 0.2);
 }
 
-.stButton.primary>button:hover {
+button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(100, 103, 243, 0.3);
 }
 
 /* Secondary Button */
-.stButton.secondary>button {
-    background-color: #FF7F50;
+secondary {
+    background: linear-gradient(135deg, #34c2eb, #3498db);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -246,8 +246,8 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 }
 
 /* Success Button */
-.stButton.success>button {
-    background-color: #DC143C;
+.success {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -257,8 +257,8 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 }
 
 /* Danger Button */
-.stButton.danger>button {
-    background-color: #DB7093;
+.danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
