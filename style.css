@@ -219,7 +219,7 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 
 /* Primary Button */
 .stButton.primary>button {
-    background: red;
+    background-color: red;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -236,7 +236,7 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 
 /* Secondary Button */
 .stButton.secondary>button {
-    background: #FF7F50;
+    background-color: #FF7F50;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -247,7 +247,7 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 
 /* Success Button */
 .stButton.success>button {
-    background: #DC143C;
+    background-color: #DC143C;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -258,7 +258,7 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
 
 /* Danger Button */
 .stButton.danger>button {
-    background: #DB7093;
+    background-color: #DB7093;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
