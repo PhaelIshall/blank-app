@@ -120,8 +120,6 @@ with tab3:
             "predicted_gender",
             options=["Male", "Female"],
             label_visibility="collapsed",
-            disabled=True,
-            value=gender
         )
     
     st.markdown("---")
@@ -142,8 +140,6 @@ with tab3:
             "predicted_age",
             options=["(0-2)", "(4-6)", "(8-12)", "(15-20)", "(25-32)", "(38-43)", "(48-53)", "(60-100)"],
             label_visibility="collapsed",
-            disabled=True,
-            value=age
         )
     
     st.markdown("---")
