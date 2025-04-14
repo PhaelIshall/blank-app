@@ -145,8 +145,11 @@ with tab3:
     if st.session_state.submitted:
         answers = db.collection("question2")
         docs = answers.stream()
+        df = pd.DataFrame()
         for doc in docs: 
-          st.write(doc.to_dict())
+          new_df = pd.DataFrame([doc.to_dict()])
+          df = pd.concat([df, new_df], ignore_index=True)
+        st.bar_chart(df)
     else:  
         col1, col2 = st.columns(2)
         with col1:
