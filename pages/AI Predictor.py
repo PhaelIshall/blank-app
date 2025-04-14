@@ -144,7 +144,7 @@ with tab3:
     
     st.markdown("---")
     race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
-    user_race = st.segmented_control("race", options=race_options, label="Your race/ethnicity:")
+    user_race = st.segmented_control("race", options=race_options)
     
     if st.button("Submit Feedback"):
         st.success("Thank you for your feedback! This helps us understand and improve our model's performance across different demographics.")
