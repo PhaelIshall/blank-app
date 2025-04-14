@@ -100,6 +100,41 @@ with tab3:
     st.write("""
     We saw how the demo was for the group of some random participants from a curated dataset. The real question is, how did it perform for you?
     """)
+    col1, col2 = st.columns(2)
+    with col1: 
+        st.header("What is your gender?")
+        option_map = {
+        0: ":material/girl:",
+        1: ":material/boy:",
+        }
+        
+        selection = st.segmented_control(
+            "Tool",
+            options=option_map.keys(),
+            format_func=lambda option: option_map[option],
+            selection_mode="single",
+        )
+        st.write(
+            "Your selected option: "
+            f"{None if selection is None else option_map[selection]}"
+        )
+     with col2: 
+        st.header("What did the model predict?")
+        option_map = {
+        0: ":material/girl:",
+        1: ":material/boy:",
+        }
+        
+        selection = st.segmented_control(
+            "Tool",
+            options=option_map.keys(),
+            format_func=lambda option: option_map[option],
+            selection_mode="single",
+        )
+        st.write(
+            "Your selected option: "
+            f"{None if selection is None else option_map[selection]}"
+        )
     
     # st.subheader("Key Points to Notice:")
     # st.markdown("""
