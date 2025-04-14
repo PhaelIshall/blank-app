@@ -103,7 +103,7 @@ def main():
           st.button(doc.id, type="primary")
       elif i%2== 0:
         with col2:
-          st.markdown('<style>div.stButton > button:nth-child(2) { class: secondary; }</style>', unsafe_allow_html=True
+          st.markdown('<style>div.stButton > button:nth-child(2) { class: secondary; }</style>', unsafe_allow_html=True)
           st.button(doc.id, type="secondary")
       else:
         with col3:
