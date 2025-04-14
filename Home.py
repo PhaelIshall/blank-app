@@ -107,7 +107,7 @@ def main():
           # st.button(doc.id, type="secondary")
       else:
         with col3:
-          st.markdown(f'<button class="secondary"> {doc.id} </button>', unsafe_allow_html=True)
+          st.markdown(f'<button class="primary"> {doc.id} </button>', unsafe_allow_html=True)
           # st.button(doc.id, type="tertiary")
 
     # When Enter is pressed
