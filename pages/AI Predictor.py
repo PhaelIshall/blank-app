@@ -120,11 +120,6 @@ with tab3:
         )
     with col2: 
         st.header("What did the model predict?")
-        option_map = {
-        0: ":material/girl:",
-        1: ":material/boy:",
-        }
-        
         selection_pred = st.segmented_control(
             "Tool",
             options=option_map.keys(),
