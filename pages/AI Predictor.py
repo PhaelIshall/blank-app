@@ -150,13 +150,13 @@ with tab3:
         df = pd.DataFrame()
         r = []
         filter_by = { 0: "Gender Prediction Results",   1: "Age Prediction Results"} 
-            st.markdown("#### Filter the results")
-            user_choice = st.segmented_control(
-                "type_result",
-                options=filter_by.keys(),
-                format_func=lambda option: filter_by[option],
-                label_visibility="collapsed"
-            )
+        st.markdown("#### Filter the results")
+        user_choice = st.segmented_control(
+            "type_result",
+            options=filter_by.keys(),
+            format_func=lambda option: filter_by[option],
+            label_visibility="collapsed"
+        )
         if user_choice=="Gender Prediction Results":
           choice = "gender_res"
         else:
