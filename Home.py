@@ -103,11 +103,11 @@ def main():
           # st.button(doc.id, type="primary")
       elif i%2== 0:
         with col2:
-          st.markdown(f'<button class="success"> {doc.id} </button>', unsafe_allow_html=True)
+          st.markdown(f'<button class="danger"> {doc.id} </button>', unsafe_allow_html=True)
           # st.button(doc.id, type="secondary")
       else:
         with col3:
-          st.markdown(f'<button class="success"> {doc.id} </button>', unsafe_allow_html=True)
+          st.markdown(f'<button class="secondary"> {doc.id} </button>', unsafe_allow_html=True)
           # st.button(doc.id, type="tertiary")
 
     # When Enter is pressed
