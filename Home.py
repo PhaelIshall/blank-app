@@ -100,7 +100,7 @@ def main():
       if i%3== 0:
         with col1:
           st.button(doc.id, type="primary")
-      if i%2== 0:
+      elif i%2== 0:
         with col2:
           st.button(doc.id, type="secondary")
       else:
