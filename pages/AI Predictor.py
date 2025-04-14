@@ -130,7 +130,7 @@ with tab3:
         st.markdown("#### Your actual age group:")
         user_age = st.segmented_control(
             "actual_age",
-            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
+            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+ "],
             label_visibility="collapsed"
         )
     
