@@ -82,7 +82,6 @@ with tab2:
     st.bar_chart(df, x="race", y="age", stack=False, color='#DDA0DD', horizontal=True)
     st.bar_chart(df, x="race", y="participants", stack=False, color='#DAA520', horizontal=True)
 
-    st.header("But the question is: How good was it for you? ")
     # Placeholder for demographic samples
     
     # col1, col2, col3 = st.columns(3)
@@ -97,25 +96,24 @@ with tab2:
     #     st.metric("Detection Rate", "92%")
 
 with tab3:
-    st.header("Understanding the Results")
+    st.header("But the question is: How good was it for you? ")
     st.write("""
-    This demo uses OpenCV's Haar Cascade Classifier to demonstrate how AI facial recognition
-    systems work. The system attempts to detect faces and estimate attributes.
+    We saw how the demo was for the group of some random participants from a curated dataset. The real question is, how did it perform for you?
     """)
     
-    st.subheader("Key Points to Notice:")
-    st.markdown("""
-    - Detection accuracy varies across different demographics
-    - Confidence scores may differ based on lighting and pose
-    - The system provides basic demographic estimates
-    """)
+    # st.subheader("Key Points to Notice:")
+    # st.markdown("""
+    # - Detection accuracy varies across different demographics
+    # - Confidence scores may differ based on lighting and pose
+    # - The system provides basic demographic estimates
+    # """)
     
-    st.subheader("Analyzing the Comparison:")
-    st.markdown("""
-    - Detection Rate: How often the system successfully identifies a face
-    - Confidence Score: How sure the system is about its predictions
-    - Accuracy Variations: Patterns in performance across groups
-    """)
+    # st.subheader("Analyzing the Comparison:")
+    # st.markdown("""
+    # - Detection Rate: How often the system successfully identifies a face
+    # - Confidence Score: How sure the system is about its predictions
+    # - Accuracy Variations: Patterns in performance across groups
+    # """)
 
 
 with tab1: 
