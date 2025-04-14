@@ -200,9 +200,8 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
     position: relative;
     z-index: 2;
 }
-
 /* Streamlit elements customization */
-.stButton>button {
+.stButton.primary>button {
     background: linear-gradient(135deg, #814bff, #d04ef8);
     color: white;
     border: none;
@@ -213,7 +212,7 @@ div[data-testid="stSidebarNav"] > ul > li > div[aria-selected="true"] {
     box-shadow: 0 4px 12px rgba(26, 24, 143, 0.2);
 }
 
-.stButton>button:hover {
+.stButton.primary>button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(100, 103, 243, 0.3);
 }
