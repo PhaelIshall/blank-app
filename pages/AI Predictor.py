@@ -130,7 +130,7 @@ with tab3:
         st.markdown("#### Your actual age group:")
         user_age = st.segmented_control(
             "actual_age",
-            options=["0-12", "13-19", "20-29", "30-39", "40-49", "50+"],
+            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
             label_visibility="collapsed"
         )
     
@@ -138,7 +138,7 @@ with tab3:
         st.markdown("#### Model's prediction:")
         model_age = st.segmented_control(
             "predicted_age",
-            options=["(0-2)", "(4-6)", "(8-12)", "(15-20)", "(25-32)", "(38-43)", "(48-53)", "(60-100)"],
+            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
             label_visibility="collapsed",
         )
     
