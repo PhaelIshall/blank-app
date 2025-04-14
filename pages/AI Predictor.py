@@ -139,6 +139,7 @@ with tab3:
             user_gender = st.segmented_control(
                 "actual_gender",
                 options=gender_map_options.keys(),
+                format_func=lambda option: gender_map_options[option],
                 label_visibility="collapsed"
             )
         pred_gender_map_options = { 0: ":material/female:",   1: ":material/male:"} 
@@ -147,6 +148,7 @@ with tab3:
             model_gender = st.segmented_control(
                 "predicted_gender",
                 options=pred_gender_map_options.keys(),
+                format_func=lambda option: pred_gender_map_options[option],
                 label_visibility="collapsed",
             )
         st.write(
