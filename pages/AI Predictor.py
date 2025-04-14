@@ -40,13 +40,14 @@ st.set_page_config(
    
 )
 st.session_state.submitted = False
-st.session_state.gender = False
-st.session_state.age = False
-st.session_state.pred_gender = False
-st.session_state.pred_age = False
-st.session_state.race = False
-st.session_state.gender_result = False
-st.session_state.age_result = False
+if gender not in st.session_state:
+    st.session_state.gender = ""
+    st.session_state.age = ""
+    st.session_state.pred_gender = ""
+    st.session_state.pred_age = ""
+    st.session_state.race = ""
+    st.session_state.gender_result = False
+    st.session_state.age_result = False
 
 # Load custom CSS
 with open('style.css') as f:
