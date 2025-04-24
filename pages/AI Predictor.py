@@ -212,7 +212,7 @@ with tab3:
       df = pd.DataFrame()
       r = []
       filter_by = { 0: "Gender Prediction Results",   1: "Age Prediction Results"} 
-      st.markdown("#### Filter the results")
+
       for doc in docs: 
         r.append(doc.to_dict()["answer"])
       df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
@@ -264,6 +264,7 @@ with tab3:
             color_continuous_scale='RdBu_r'
         )
         st.plotly_chart(fig_heatmap, use_container_width=True)
+        
       st.subheader("Finally, how good was the model at predicting your genders?")
       st.dataframe(df.groupby('race')['gender results'].mean().reset_index(), use_container_width=True)
 
