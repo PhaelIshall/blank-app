@@ -1,3 +1,5 @@
+import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 import cv2 
 import uuid
@@ -209,6 +211,19 @@ with tab3:
       for doc in docs: 
         r.append(doc.to_dict()["answer"])
       df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
+
+              # Create heatmap for selected metric
+      fig_heatmap = px.density_heatmap(
+          df, 
+          x='gender', 
+          y='race', 
+          z='gender results',
+          title="Accuracy Heatmap",
+          color_continuous_scale='RdBu_r'
+      )
+      st.plotly_chart(fig_heatmap, use_container_width=True)
+
+      
       st.markdown("### Gender Prediction Results")
       st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
       st.markdown("### Race Prediction Results")
