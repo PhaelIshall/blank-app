@@ -238,7 +238,7 @@ with tab3:
             x='race',
             y='age results',
             title=f"Average Accuracy by age and race",
-            color='gender'
+            color='race'
         )
         st.plotly_chart(fig_age, use_container_width=True)
     
