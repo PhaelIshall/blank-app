@@ -243,7 +243,6 @@ with tab3:
         st.plotly_chart(fig_age, use_container_width=True)
     
       with col2: 
-        st.subheader("Performance Distribution")
         
         # Box plot combining gender and ethnicity
         fig_box = px.box(
