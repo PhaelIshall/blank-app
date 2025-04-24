@@ -218,11 +218,12 @@ with tab3:
       df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
 
               # Create heatmap for selected metric
-      with col1: 
-        
 
-        
-         # Bar chart by gender
+      st.subheader("Results")
+      st.markdown("Hopefully it's clear by now that AI research depends a lot on data and testing, lots of data and testing. ")
+      st.markdown("Technically we just ran a little experiment to see how good this model was with a sample of participants (that's you, the students!). Now let's analyze the results and see if we can make any conclusions about our AI! ")
+      with col1: 
+        # Bar chart by gender
         fig_gen = px.bar(
             df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),
             x='race',
@@ -232,19 +233,7 @@ with tab3:
         )
         st.plotly_chart(fig_gen, use_container_width=True)
 
-        
-        fig_age = px.bar(
-            df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
-            x='race',
-            y='age results',
-            title=f"Average Accuracy by age and race",
-            color='gender'
-        )
-        st.plotly_chart(fig_age, use_container_width=True)
-    
-      with col2: 
-        
-        # Box plot combining gender and ethnicity
+      with col2:
         fig_box = px.box(
             df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),
             x='race',
@@ -254,17 +243,45 @@ with tab3:
             points="all"
         )
         st.plotly_chart(fig_box, use_container_width=True)
+          
         
+      st.markdown("""
+      - The first figure tells us how good our AI was at predicting the gender for each group of people. 
+      - The second figure tells us how good our AI was at predicting the age for each race group. 
+      - The higher the bars, the better the performance. The colors tell us about the gender of the participants. What do you notice?
+      """)
+      
+      st.subheader("Cooler charts")
+      st.markdown("We don't only deal with bar charts, especially when the data becomes more complex.")
+      st.markdown("Let's have another view of the data and see if we are able to notice anything else!")
+     with col1: 
+        # Box plot combining gender and ethnicity
+        fig_age = px.bar(
+            df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
+            x='race',
+            y='age results',
+            title=f"Average Accuracy by age and race",
+            color='gender'
+        )
+        st.plotly_chart(fig_age, use_container_width=True)
+
+      with col2:
         fig_heatmap = px.density_heatmap(
-            df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),
+            df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
             x='gender', 
             y='race', 
-            z='gender results',
+            z='age results',
             title="Accuracy Heatmap",
             color_continuous_scale='RdBu_r'
         )
         st.plotly_chart(fig_heatmap, use_container_width=True)
-        
+
+
+         st.markdown("""
+      - The first figure summarizes the performance of the model for each category of people. For example: While females are grouped together, black males are group together, etc. 
+      - The second figure is called a heatmap and it also summarizes how good our AI was at predicting the age for each race group. 
+      - Do you notice anything new from these figures?
+      """)  
       # st.subheader("Finally, how good was the model at predicting your genders?")
       # df1 = df.groupby('race')['gender results'].mean().reset_index(drop=True)
       # st.dataframe(df1, use_container_width=True)
