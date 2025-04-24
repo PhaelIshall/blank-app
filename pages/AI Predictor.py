@@ -199,8 +199,8 @@ with tab3:
 
 
     st.session_state.race = user_race
-    st.session_state.gender_result = (user_gender==model_gender)
-    st.session_state.age_result = (user_age==model_age)
+    st.session_state.gender_result = int(user_gender==model_gender)
+    st.session_state.age_result = int(user_age==model_age)
     if st.button("Submit Feedback", on_click=submit):
         st.success("Thank you for your feedback! Now let's have a look at everyone's results!")
 
