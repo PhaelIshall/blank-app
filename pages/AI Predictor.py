@@ -126,19 +126,18 @@ with tab2:
     Explore how facial recognition accuracy varies across different demographic groups.
     This analysis helps demonstrate potential biases in AI systems.
     """)
-
+    df = pd.read_csv("fairface_results.txt")
+    st.bar_chart(df, x="race", y="gender", stack=False, color='#9370DB', horizontal=True)
+    st.bar_chart(df, x="race", y="age", stack=False, color='#DDA0DD', horizontal=True)
           
     st.subheader("Key Points to Notice:")
     st.markdown("""
     - Detection accuracy for age and gender varies across different demographics
     - Confidence scores may differ based on lighting and pose
     """)
-    
-
-    df = pd.read_csv("fairface_results.txt")
-    st.bar_chart(df, x="race", y="gender", stack=False, color='#9370DB', horizontal=True)
-    st.bar_chart(df, x="race", y="age", stack=False, color='#DDA0DD', horizontal=True)
+  
     st.bar_chart(df, x="race", y="participants", stack=False, color='#DAA520', horizontal=True)
+  
 
 with tab3:
     st.header("But the question is:")
