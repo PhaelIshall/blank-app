@@ -236,15 +236,16 @@ with tab3:
         st.plotly_chart(fig_gen, use_container_width=True)
 
       with col2:
-        fig_box = px.box(
-            df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),
+
+        fig_age = px.bar(
+            df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
             x='race',
-            y='gender results',
-            color='gender',
-            title="Accuracy Distribution by Demographics",
-            points="all"
+            y='age results',
+            title=f"Average Accuracy by age and race",
+            color='gender'
         )
-        st.plotly_chart(fig_box, use_container_width=True)
+        st.plotly_chart(fig_age, use_container_width=True)
+        
           
         
       st.markdown("""
@@ -259,14 +260,15 @@ with tab3:
       
       col11, col22 = st.columns(2)
       with col11: 
-        fig_age = px.bar(
-            df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
+        fig_box = px.box(
+            df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),
             x='race',
-            y='age results',
-            title=f"Average Accuracy by age and race",
-            color='gender'
+            y='gender results',
+            color='gender',
+            title="Accuracy Distribution by Demographics",
+            points="all"
         )
-        st.plotly_chart(fig_age, use_container_width=True)
+        st.plotly_chart(fig_box, use_container_width=True)
 
       with col22:
         fig_heatmap = px.density_heatmap(
