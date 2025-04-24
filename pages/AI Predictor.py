@@ -202,6 +202,8 @@ with tab3:
         st.success("Thank you for your feedback! Now let's have a look at everyone's results!")
 
     with tab4:
+      col1, col2 = st.columns(2)
+      
       answers = db.collection("question2")
       docs = answers.stream()
       df = pd.DataFrame()
@@ -213,15 +215,20 @@ with tab3:
       df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
 
               # Create heatmap for selected metric
-      fig_heatmap = px.density_heatmap(
-          df, 
-          x='gender', 
-          y='race', 
-          z='gender results',
-          title="Accuracy Heatmap",
-          color_continuous_scale='RdBu_r'
-      )
-      st.plotly_chart(fig_heatmap, use_container_width=True)
+      with col1: 
+        
+        fig_heatmap = px.density_heatmap(
+            df, 
+            x='gender', 
+            y='race', 
+            z='gender results',
+            title="Accuracy Heatmap",
+            color_continuous_scale='RdBu_r'
+        )
+        st.plotly_chart(fig_heatmap, use_container_width=True)
+
+      with col2: 
+        st.dataframe(df, use_container_width=True)
 
       
       st.markdown("### Gender Prediction Results")
