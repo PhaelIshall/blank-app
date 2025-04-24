@@ -14,7 +14,7 @@ We can also tell them that like most AI systems that are used in the market righ
 *Conclusion: AI tools great, but we should use them carefully and understand that they are not perfect, they can be biased.*
  
 #### Exercise
-- The students will not tell us their demographic information and what the model guessed, and then we can analyze the results for the whole class.
+- The students will now tell us their demographic information and what the model guessed, and then we can analyze the results for the whole class.
   
 *Goal: Emphasize the importance of rigorous testing for these tools, and how when companies fail to do this, some people fall through the cracks, like minorities*
 
