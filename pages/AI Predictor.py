@@ -162,7 +162,7 @@ with tab3:
         st.markdown("#### Model's prediction:")
         model_gender = st.segmented_control(
             "predicted_gender",
-            options=pred_gender_map_options.keys(),
+            options=gender_map_options.keys(),
             format_func=lambda option: gender_map_options[option],
             label_visibility="collapsed",
         )
