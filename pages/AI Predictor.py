@@ -266,10 +266,15 @@ with tab3:
         st.plotly_chart(fig_heatmap, use_container_width=True)
         
       st.subheader("Finally, how good was the model at predicting your genders?")
-      st.dataframe(100 * df.groupby('race')['gender results'].mean().reset_index(), use_container_width=True)
+      df1 = df.groupby('race')['gender results'].mean().reset_index(drop=True)
+      df1['gender results'].to_frame().style.format('{:,.3f}%')
+      st.dataframe(df1, use_container_width=True)
 
       st.subheader("What about your ages?")
-      st.dataframe(100 * df.groupby('race')['age results'].mean().reset_index(), use_container_width=True)
+
+      df2 = df.groupby('race')['age results'].mean().reset_index(drop=True)
+      df2['age results'].to_frame().style.format('{:,.3f}%')
+      st.dataframe(df2, use_container_width=True)
       # st.markdown("### Gender Prediction Results")
       # st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
       # st.markdown("### Race Prediction Results")
