@@ -189,7 +189,7 @@ with tab3:
             "predicted_age",
             options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
             label_visibility="collapsed",
-            key="pred_age"
+            key="pred_age_res"
         )
     st.session_state.age = user_age
     st.session_state.pred_age = model_age
