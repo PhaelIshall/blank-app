@@ -234,7 +234,7 @@ with tab3:
         # st.dataframe(df, use_container_width=True)
          # Bar chart by gender
         fig_gender = px.bar(
-            filtered_df.groupby('gender')['gender results'].mean().reset_index(),
+            df.groupby('gender')['gender results'].mean().reset_index(),
             x='gender',
             y='gender results',
             title=f"Average Accuracy by Gender",
