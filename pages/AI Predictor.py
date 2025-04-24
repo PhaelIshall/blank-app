@@ -264,8 +264,11 @@ with tab3:
             color_continuous_scale='RdBu_r'
         )
         st.plotly_chart(fig_heatmap, use_container_width=True)
-
+      st.subheader("Finally, how good was the model at predicting your genders?")
       st.dataframe(df.groupby('race')['gender results'].mean().reset_index(), use_container_width=True)
+
+      st.subheader("What about your ages?")
+      st.dataframe(df.groupby('race')['age results'].mean().reset_index(), use_container_width=True)
       # st.markdown("### Gender Prediction Results")
       # st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
       # st.markdown("### Race Prediction Results")
