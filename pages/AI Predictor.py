@@ -221,7 +221,7 @@ with tab3:
       with col1: 
         
 
-        # st.dataframe(df, use_container_width=True)
+        
          # Bar chart by gender
         fig_gen = px.bar(
             df.groupby('race')['gender results'].mean().reset_index(),
@@ -265,7 +265,7 @@ with tab3:
         )
         st.plotly_chart(fig_heatmap, use_container_width=True)
 
-      
+      st.dataframe(df.groupby('race')['gender results'].mean().reset_index(), use_container_width=True)
       # st.markdown("### Gender Prediction Results")
       # st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
       # st.markdown("### Race Prediction Results")
