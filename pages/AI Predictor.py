@@ -238,7 +238,7 @@ with tab3:
             x='gender',
             y='gender results',
             title=f"Average Accuracy by Gender",
-            color='Gender'
+            color='gender'
         )
         st.plotly_chart(fig_gender, use_container_width=True)
     
