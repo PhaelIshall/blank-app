@@ -29,6 +29,7 @@ Another option is riddles:
 The model has seen this many times and will know how to answer the riddle and that it is about gender bias.
 - A father sends his son on a flight by himself. They say goodbye at home, once the child is on the plane, the pilot says “I can’t fly this plane, my son is here”. How is this possible?
 The model will still think this is a riddle and 1. does not realize that there is no issue with flying family 2. will not assume the pilot is the mother? (depends on model)
+- Next the students should ask why the AI did not give the same answer as before? Or maybe suggest another plausible answer and ask about it
 
 ###### Example output
 The man who said goodbye to the son at home was the pilot's husband or partner, who also happens to be the son's father.
