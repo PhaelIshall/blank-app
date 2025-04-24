@@ -254,8 +254,9 @@ with tab3:
       st.subheader("Cooler charts")
       st.markdown("We don't only deal with bar charts, especially when the data becomes more complex.")
       st.markdown("Let's have another view of the data and see if we are able to notice anything else!")
-     with col1: 
-        # Box plot combining gender and ethnicity
+      
+      
+      with col1: 
         fig_age = px.bar(
             df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
             x='race',
