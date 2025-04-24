@@ -231,7 +231,17 @@ with tab3:
         st.plotly_chart(fig_heatmap, use_container_width=True)
 
       with col2: 
-        st.dataframe(df, use_container_width=True)
+        # st.dataframe(df, use_container_width=True)
+         # Bar chart by gender
+        fig_gender = px.bar(
+            filtered_df.groupby('gender')['gender results'].mean().reset_index(),
+            x='gender',
+            y='gender results',
+            title=f"Average Accuracy by Gender",
+            color='Gender'
+        )
+        st.plotly_chart(fig_gender, use_container_width=True)
+    
 
       
       st.markdown("### Gender Prediction Results")
