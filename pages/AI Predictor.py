@@ -267,13 +267,13 @@ with tab3:
         
       st.subheader("Finally, how good was the model at predicting your genders?")
       df1 = df.groupby('race')['gender results'].mean().reset_index(drop=True)
-      df1['gender results'].to_frame().style.format('{:,.3f}%')
+      df1['age results'].to_frame().style.format('{:,.3f}%')
       st.dataframe(df1, use_container_width=True)
 
       st.subheader("What about your ages?")
 
       df2 = df.groupby('race')['age results'].mean().reset_index(drop=True)
-      df2['age results'].to_frame().style.format('{:,.3f}%')
+      df2['gender results'].to_frame().style.format('{:,.3f}%')
       st.dataframe(df2, use_container_width=True)
       # st.markdown("### Gender Prediction Results")
       # st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
