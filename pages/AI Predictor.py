@@ -224,21 +224,21 @@ with tab3:
         
          # Bar chart by gender
         fig_gen = px.bar(
-            df.groupby('race')['gender results'].mean().reset_index(),
+            df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),
             x='race',
             y='gender results',
-            title=f"Average Accuracy by Gender and race",
-            color='race'
+            title="Average Accuracy by Gender and race",
+            color='gender'
         )
         st.plotly_chart(fig_gen, use_container_width=True)
 
         
         fig_age = px.bar(
-            df.groupby('race')['age results'].mean().reset_index(),
+            df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
             x='race',
             y='age results',
             title=f"Average Accuracy by age and race",
-            color='race'
+            color='gender'
         )
         st.plotly_chart(fig_age, use_container_width=True)
     
