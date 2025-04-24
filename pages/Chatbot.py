@@ -26,7 +26,7 @@ def generate_pastel_color():
 # Initialize session state for info cards
 if 'info_cards' not in st.session_state:
     st.session_state.info_cards = [
-        {"id": 1, "color": generate_pastel_color(), "title": "Hint!", "content": "Try to ask the Chatbot how many Rs are in Stawberry! A kid can answer so Chatbot probably can... right?"},
+        {"id": 1, "color": generate_pastel_color(), "title": "Hint!", "content": "Try to ask the Chatbot how many Rs are in Strawberry! A kid can answer so Chatbot probably can... right?"},
         {"id": 2, "color": generate_pastel_color(), "title": "Tips & Tricks", "content": "A lot of people actually ask chatbots for advice, but can we rely on them for basic commonsense? Ask Chatbot: Name 5 countries that start and end with the same letter. "},
     ]
 
