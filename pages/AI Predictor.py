@@ -246,7 +246,7 @@ with tab3:
         
         # Box plot combining gender and ethnicity
         fig_box = px.box(
-            df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),,
+            df.groupby(['race', 'gender'])['gender results'].mean().reset_index(),
             x='race',
             y='gender results',
             color='gender',
