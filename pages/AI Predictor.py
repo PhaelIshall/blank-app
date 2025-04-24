@@ -220,6 +220,42 @@ with tab3:
               # Create heatmap for selected metric
       with col1: 
         
+
+        # st.dataframe(df, use_container_width=True)
+         # Bar chart by gender
+        fig_gen = px.bar(
+            df.groupby('race')['gender results'].mean().reset_index(),
+            x='race',
+            y='gender results',
+            title=f"Average Accuracy by Gender and race",
+            color='gender'
+        )
+        st.plotly_chart(fig_gen, use_container_width=True)
+
+        
+        fig_age = px.bar(
+            df.groupby('race')['age results'].mean().reset_index(),
+            x='race',
+            y='age results',
+            title=f"Average Accuracy by age and race",
+            color='gender'
+        )
+        st.plotly_chart(fig_age, use_container_width=True)
+    
+      with col2: 
+        st.subheader("Performance Distribution")
+        
+        # Box plot combining gender and ethnicity
+        fig_box = px.box(
+            df,
+            x='race',
+            y='gender results',
+            color='gender',
+            title="Accuracy Distribution by Demographics",
+            points="all"
+        )
+        st.plotly_chart(fig_box, use_container_width=True)
+        
         fig_heatmap = px.density_heatmap(
             df, 
             x='gender', 
@@ -229,19 +265,6 @@ with tab3:
             color_continuous_scale='RdBu_r'
         )
         st.plotly_chart(fig_heatmap, use_container_width=True)
-
-      with col2: 
-        # st.dataframe(df, use_container_width=True)
-         # Bar chart by gender
-        fig_gender = px.bar(
-            df.groupby('gender')['gender results'].mean().reset_index(),
-            x='gender',
-            y='gender results',
-            title=f"Average Accuracy by Gender",
-            color='gender'
-        )
-        st.plotly_chart(fig_gender, use_container_width=True)
-    
 
       
       st.markdown("### Gender Prediction Results")
