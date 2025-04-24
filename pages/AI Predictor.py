@@ -157,13 +157,13 @@ with tab3:
             format_func=lambda option: gender_map_options[option],
             label_visibility="collapsed"
         )
-    pred_gender_map_options = { "Female": ":material/female:",   "Male": ":material/male:", "Other": ":material/transgender:"} 
+    # pred_gender_map_options = { "Female": ":material/female:",   "Male": ":material/male:", "Other": ":material/transgender:"} 
     with col2:
         st.markdown("#### Model's prediction:")
         model_gender = st.segmented_control(
             "predicted_gender",
             options=pred_gender_map_options.keys(),
-            format_func=lambda option: pred_gender_map_options[option],
+            format_func=lambda option: gender_map_options[option],
             label_visibility="collapsed",
         )
 
