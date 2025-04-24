@@ -278,7 +278,7 @@ with tab3:
         st.plotly_chart(fig_heatmap, use_container_width=True)
 
 
-         st.markdown("""
+      st.markdown("""
       - The first figure summarizes the performance of the model for each category of people. For example: While females are grouped together, black males are group together, etc. 
       - The second figure is called a heatmap and it also summarizes how good our AI was at predicting the age for each race group. 
       - Do you notice anything new from these figures?
