@@ -205,7 +205,7 @@ with tab3:
         st.success("Thank you for your feedback! Now let's have a look at everyone's results!")
 
     with tab4:
-      col1, col2 = st.columns(2)
+      
       
       answers = db.collection("question2")
       docs = answers.stream()
@@ -222,6 +222,8 @@ with tab3:
       st.subheader("Results")
       st.markdown("Hopefully it's clear by now that AI research depends a lot on data and testing, lots of data and testing. ")
       st.markdown("Technically we just ran a little experiment to see how good this model was with a sample of participants (that's you, the students!). Now let's analyze the results and see if we can make any conclusions about our AI! ")
+      
+      col1, col2 = st.columns(2)
       with col1: 
         # Bar chart by gender
         fig_gen = px.bar(
