@@ -228,7 +228,7 @@ with tab3:
             x='race',
             y='gender results',
             title=f"Average Accuracy by Gender and race",
-            color='gender'
+            color='race'
         )
         st.plotly_chart(fig_gen, use_container_width=True)
 
@@ -267,10 +267,10 @@ with tab3:
         st.plotly_chart(fig_heatmap, use_container_width=True)
 
       
-      st.markdown("### Gender Prediction Results")
-      st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
-      st.markdown("### Race Prediction Results")
-      st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="age results", size=100)
+      # st.markdown("### Gender Prediction Results")
+      # st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
+      # st.markdown("### Race Prediction Results")
+      # st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="age results", size=100)
             
         
     # st.subheader("Key Points to Notice:")
