@@ -220,7 +220,7 @@ with tab3:
               # Create heatmap for selected metric
 
       st.subheader("Results")
-      st.markdown("Hopefully it's clear by now that AI research depends a lot on data and testing, lots of data and testing. ")
+      st.markdown("Hopefully it's clear by now that AI research depends *lots and lots (and lots)* of data and testing ")
       st.markdown("Technically we just ran a little experiment to see how good this model was with a sample of participants (that's you, the students!). Now let's analyze the results and see if we can make any conclusions about our AI! ")
       
       col1, col2 = st.columns(2)
@@ -283,8 +283,8 @@ with tab3:
 
 
       st.markdown("""
-      - The first figure summarizes the performance of the model for each category of people. For example: While females are grouped together, black males are group together, etc. 
-      - The second figure is called a heatmap and it also summarizes how good our AI was at predicting the age for each race group. 
+      - The first figure summarizes the performance of the model at predicting the gender for each category of people. For example: While females are grouped together, black males are group together, etc. 
+      - The second figure is called a heatmap and it also summarizes how good our AI was at predicting the age for each group. 
       - Do you notice anything new from these figures?
       """)  
       # st.subheader("Finally, how good was the model at predicting your genders?")
