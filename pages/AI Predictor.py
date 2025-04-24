@@ -257,8 +257,8 @@ with tab3:
       st.markdown("We don't only deal with bar charts, especially when the data becomes more complex.")
       st.markdown("Let's have another view of the data and see if we are able to notice anything else!")
       
-      
-      with col1: 
+      col11, col22 = st.columns(2)
+      with col11: 
         fig_age = px.bar(
             df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
             x='race',
@@ -268,7 +268,7 @@ with tab3:
         )
         st.plotly_chart(fig_age, use_container_width=True)
 
-      with col2:
+      with col22:
         fig_heatmap = px.density_heatmap(
             df.groupby(['race', 'gender'])['age results'].mean().reset_index(),
             x='gender', 
