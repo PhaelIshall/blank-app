@@ -1,103 +1,40 @@
-# Gender-and-Age-Detection   <img alt="GitHub" src="https://img.shields.io/github/license/smahesh29/Gender-and-Age-Detection">
+# AI Outreach 
 
+- This is a playground for students to experiments with some AI tools and also discuss the drawbacks and suggest how to make them better.
+## AI Predictor
+#### Live Demo: 
+This section has a portion where the students have their photo taken and get to see the AI prediction for their age and gender. They also get to see the probabilities that the model outputs for each prediction. The students are asked to take the photos with different facial expressions, rotating their heads in different directions so that they can notice that the output changes. They can also try it in a situation with lower lighting etc. 
+#### Demographic Comparison: 
+The AI predictor has been ran on thousands of individuals with different backgrounds on the Fairface dataset. This allowed us to have some results of accuracy per ethnic group. In this section we want to encourage the students to think critically about the overall results. Here are things that can be discusse: 
+- Accuracy for gender prediction is lowest for black individuals (62%) and for the others it ranges between 70% and 79%
+- Accuracy for age prediction is bad across the board. We can tell them that it is definitley a harder task (ask them to guess your age / another invited person). In addition to having more categories than the gender (8 categories). Still, the model performs the worst for black people here as well at 0.26% and latinos at 0.38% but for all the others it is more than doubled (but still pretty bad). 
 
-<h2>Objective :</h2>
-<p>To build a gender and age detector that can approximately guess the gender and age of the person (face) in a picture or through webcam.</p>
+We can also tell them that like most AI systems that are used in the market right now like ChatGPT, we don't really know what data they were trained on: which means what data they know really well, and which data they are not so familiar with.　So it is hard to tell when they fail this way, because it depends on people trying them out and talking about it. So yes, these tools can be useful and help out lives, similar technology is used at airport gates, there the margin of error is lower and the model can't fail like it does here because that really affects people's lives. 
 
-<h2>About the Project :</h2>
-<p>In this Python Project, I had used Deep Learning to accurately identify the gender and age of a person from a single image of a face. I used the models trained by <a href="https://talhassner.github.io/home/projects/Adience/Adience-data.html">Tal Hassner and Gil Levi</a>. The predicted gender may be one of ‘Male’ and ‘Female’, and the predicted age may be one of the following ranges- (0 – 2), (4 – 6), (8 – 12), (15 – 20), (25 – 32), (38 – 43), (48 – 53), (60 – 100) (8 nodes in the final softmax layer). It is very difficult to accurately guess an exact age from a single image because of factors like makeup, lighting, obstructions, and facial expressions. And so, I made this a classification problem instead of making it one of regression.</p>
-
-<h2>Dataset :</h2>
-<p>For this python project, I had used the Adience dataset; the dataset is available in the public domain and you can find it <a href="https://www.kaggle.com/ttungl/adience-benchmark-gender-and-age-classification">here</a>. This dataset serves as a benchmark for face photos and is inclusive of various real-world imaging conditions like noise, lighting, pose, and appearance. The images have been collected from Flickr albums and distributed under the Creative Commons (CC) license. It has a total of 26,580 photos of 2,284 subjects in eight age ranges (as mentioned above) and is about 1GB in size. The models I used had been trained on this dataset.</p>
-
-<h2>Additional Python Libraries Required :</h2>
-<ul>
-  <li>OpenCV</li>
-  
-       pip install opencv-python
-</ul>
-<ul>
- <li>argparse</li>
-  
-       pip install argparse
-</ul>
-
-<h2>The contents of this Project :</h2>
-<ul>
-  <li>opencv_face_detector.pbtxt</li>
-  <li>opencv_face_detector_uint8.pb</li>
-  <li>age_deploy.prototxt</li>
-  <li>age_net.caffemodel</li>
-  <li>gender_deploy.prototxt</li>
-  <li>gender_net.caffemodel</li>
-  <li>a few pictures to try the project on</li>
-  <li>detect.py</li>
- </ul>
- <p>For face detection, we have a .pb file- this is a protobuf file (protocol buffer); it holds the graph definition and the trained weights of the model. We can use this to run the trained model. And while a .pb file holds the protobuf in binary format, one with the .pbtxt extension holds it in text format. These are TensorFlow files. For age and gender, the .prototxt files describe the network configuration and the .caffemodel file defines the internal states of the parameters of the layers.</p>
+*Conclusion: AI tools great, but we should use them carefully and understand that they are not perfect.*
  
- <h2>Usage :</h2>
- <ul>
-  <li>Download my Repository</li>
-  <li>Open your Command Prompt or Terminal and change directory to the folder where all the files are present.</li>
-  <li><b>Detecting Gender and Age of face in Image</b> Use Command :</li>
+#### Exercise
+- The students will not tell us their demographic information and what the model guessed, and then we can analyze the results for the whole class.
   
-      python detect.py --image <image_name>
-</ul>
-  <p><b>Note: </b>The Image should be present in same folder where all the files are present</p> 
-<ul>
-  <li><b>Detecting Gender and Age of face through webcam</b> Use Command :</li>
-  
-      python detect.py
-</ul>
-<ul>
-  <li>Press <b>Ctrl + C</b> to stop the program execution.</li>
-</ul>
+*Goal: Emphasize the importance of rigorous testing for these tools, and how when companies fail to do this, some people fall through the cracks, like minorities*
 
-# Working:
-[![Watch the video](https://img.youtube.com/vi/ReeccRD21EU/0.jpg)](https://youtu.be/ReeccRD21EU)
+#### Results
+- A graph showing the class results
 
-<h2>Examples :</h2>
-<p><b>NOTE:- I downloaded the images from Google,if you have any query or problem i can remove them, i just used it for Educational purpose.</b></p>
+## Chatbot
+The students should ask the AI something like the suggested hints and catch it hallucinating / lying / speaking non-sense. Can also make this topical and ask math questions or some other homework and show them where it fails, and especially that the teachers know when they are receiving something written by AI, it is obvious. This should be a discussion where students share what they said and what the AI answers. 
 
-    >python detect.py --image girl1.jpg
-    Gender: Female
-    Age: 25-32 years
-    
-<img src="Example/Detecting age and gender girl1.png">
+Another option is riddles: 
+- A father and son get in a car crash and are rushed to the hospital. The father dies. The boy is taken to the operating room and the surgeon says, “I can’t operate on this boy, because he’s my son.” How is this possible?
+The model has seen this many times and will know how to answer the riddle and that it is about gender bias.
+- A father sends his son on a flight by himself. They say goodbye at home, once the child is on the plane, the pilot says “I can’t fly this plane, my son is here”. How is this possible?
+The model will still think this is a riddle and 1. does not realize that there is no issue with flying family 2. will not assume the pilot is the mother? (depends on model)
 
-    >python detect.py --image girl2.jpg
-    Gender: Female
-    Age: 8-12 years
-    
-<img src="Example/Detecting age and gender girl2.png">
+###### Example output
+The man who said goodbye to the son at home was the pilot's husband or partner, who also happens to be the son's father.
 
-    >python detect.py --image kid1.jpg
-    Gender: Male
-    Age: 4-6 years    
-    
-<img src="Example/Detecting age and gender kid1.png">
+Explanation: The scenario describes a same-sex couple with one partner being a pilot and the other parent sending the child on a flight without them. In this case, the gay pilot's husband/partner is also the boy's father, and thus they would have said goodbye to their son at home before he boarded the plane. The pilot, being a pilot, cannot fly the plane while his son is on board for safety reasons.
 
-    >python detect.py --image kid2.jpg
-    Gender: Female
-    Age: 4-6 years  
-    
-<img src="Example/Detecting age and gender kid2.png">
 
-    >python detect.py --image man1.jpg
-    Gender: Male
-    Age: 38-43 years
-    
-<img src="Example/Detecting age and gender man1.png">
 
-    >python detect.py --image man2.jpg
-    Gender: Male
-    Age: 25-32 years
-    
-<img src="Example/Detecting age and gender man2.png">
-
-    >python detect.py --image woman1.jpg
-    Gender: Female
-    Age: 38-43 years
-    
-<img src="Example/Detecting age and gender woman1.png">
-              
+Credit: Relies on an open-source [project for gender and age detection.](https://github.com/smahesh29/Gender-and-Age-Detection)
