@@ -267,8 +267,9 @@ with tab3:
         
       st.subheader("Finally, how good was the model at predicting your genders?")
       df1 = df.groupby('race')['gender results'].mean().reset_index(drop=True)
-      df1['age results'].to_frame().style.format('{:,.3f}%')
       st.dataframe(df1, use_container_width=True)
+      # df1['age results'].to_frame().style.format('{:,.3f}%')
+      # st.dataframe(df1, use_container_width=True)
 
       st.subheader("What about your ages?")
 
