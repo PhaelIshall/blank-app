@@ -78,7 +78,7 @@ def render_header():
     st.title("📊 Real-time Age & Gender Predictor")
     st.markdown("""
     This app uses your webcam to predict age and gender in real-time.
-    The predictions are made using deep learning models through the DeepFace library.
+    The predictions are made using deep learning models
     """)
 
 def render_instructions():
@@ -92,10 +92,8 @@ def render_instructions():
         4. The predictions will appear at the bottom of the video feed
         
         ### Notes:
-        - Predictions are made every few frames to maintain performance
-        - The model works best with frontal face views
-        - All processing is done locally in your browser
-        - No images are stored or transmitted
+        - Try with different facial expressions 
+        - Try with different face views
         """)
 
    
@@ -151,7 +149,7 @@ with tab3:
     # Feedback form
     col1, col2 = st.columns(2)
     with col1:
-        gender_map_options = { 0: ":material/female:",   1: ":material/male:", "2": ":material/transgender:"} 
+        gender_map_options = { "Female": ":material/female:",   "Male": ":material/male:", "Other": ":material/transgender:"} 
         st.markdown("#### Your actual gender:")
         user_gender = st.segmented_control(
             "actual_gender",
@@ -159,7 +157,7 @@ with tab3:
             format_func=lambda option: gender_map_options[option],
             label_visibility="collapsed"
         )
-    pred_gender_map_options = { 0: ":material/female:",   1: ":material/male:"} 
+    pred_gender_map_options = { "Female": ":material/female:",   "Male": ":material/male:", "Other": ":material/transgender:"} 
     with col2:
         st.markdown("#### Model's prediction:")
         model_gender = st.segmented_control(
