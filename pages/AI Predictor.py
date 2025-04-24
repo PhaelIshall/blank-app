@@ -155,7 +155,8 @@ with tab3:
             "actual_gender",
             options=gender_map_options.keys(),
             format_func=lambda option: gender_map_options[option],
-            label_visibility="collapsed"
+            label_visibility="collapsed",
+            key="gt"
         )
     # pred_gender_map_options = { "Female": ":material/female:",   "Male": ":material/male:", "Other": ":material/transgender:"} 
     with col2:
@@ -165,6 +166,7 @@ with tab3:
             options=gender_map_options.keys(),
             format_func=lambda option: gender_map_options[option],
             label_visibility="collapsed",
+            key="pred"
         )
 
     st.session_state.gender = user_gender
@@ -176,8 +178,10 @@ with tab3:
         st.markdown("#### Your actual age group:")
         user_age = st.segmented_control(
             "actual_age",
-            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+ "],
-            label_visibility="collapsed"
+            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
+            label_visibility="collapsed",
+            key="gt_age"
+           
         )
     with col4:
         st.markdown("#### Model's prediction:")
@@ -185,6 +189,7 @@ with tab3:
             "predicted_age",
             options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
             label_visibility="collapsed",
+            key="pred_age"
         )
     st.session_state.age = user_age
     st.session_state.pred_age = model_age
