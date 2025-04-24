@@ -118,7 +118,7 @@ def highlightFace(net, frame, conf_threshold=0.7):
     return frameOpencvDnn,faceBoxes
 
 
-tab1, tab2, tab3 = st.tabs(["Live Demo", "Demographic Comparison", "How it Works"])
+tab1, tab2, tab3, tab4 = st.tabs(["Live Demo", "Demographic Comparison", "Classroom Exercise", "Classroom Results"])
     
 with tab2:
     st.header("Comparative Analysis")
@@ -126,7 +126,15 @@ with tab2:
     Explore how facial recognition accuracy varies across different demographic groups.
     This analysis helps demonstrate potential biases in AI systems.
     """)
-   
+
+          
+    st.subheader("Key Points to Notice:")
+    st.markdown("""
+    - Detection accuracy for age and gender varies across different demographics
+    - Confidence scores may differ based on lighting and pose
+    """)
+    
+
     df = pd.read_csv("fairface_results.txt")
     st.bar_chart(df, x="race", y="gender", stack=False, color='#9370DB', horizontal=True)
     st.bar_chart(df, x="race", y="age", stack=False, color='#DDA0DD', horizontal=True)
@@ -140,76 +148,74 @@ with tab3:
     """)
      
     # Feedback form
-    if st.session_state.submitted:
-        answers = db.collection("question2")
-        docs = answers.stream()
-        df = pd.DataFrame()
-        r = []
-        filter_by = { 0: "Gender Prediction Results",   1: "Age Prediction Results"} 
-        st.markdown("#### Filter the results")
-        for doc in docs: 
-          r.append(doc.to_dict()["answer"])
-        df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
-        st.markdown("### Gender Prediction Results")
-        st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
-        st.markdown("### Race Prediction Results")
-        st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="age results", size=100)
+    col1, col2 = st.columns(2)
+    with col1:
+        gender_map_options = { 0: ":material/female:",   1: ":material/male:", "2": ":material/transgender:"} 
+        st.markdown("#### Your actual gender:")
+        user_gender = st.segmented_control(
+            "actual_gender",
+            options=gender_map_options.keys(),
+            format_func=lambda option: gender_map_options[option],
+            label_visibility="collapsed"
+        )
+    pred_gender_map_options = { 0: ":material/female:",   1: ":material/male:"} 
+    with col2:
+        st.markdown("#### Model's prediction:")
+        model_gender = st.segmented_control(
+            "predicted_gender",
+            options=pred_gender_map_options.keys(),
+            format_func=lambda option: pred_gender_map_options[option],
+            label_visibility="collapsed",
+        )
+
+    st.session_state.gender = user_gender
+    st.session_state.pred_gender = model_gender
+
+    st.markdown("---")
+    col3, col4 = st.columns(2)
+    with col3:
+        st.markdown("#### Your actual age group:")
+        user_age = st.segmented_control(
+            "actual_age",
+            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+ "],
+            label_visibility="collapsed"
+        )
+    with col4:
+        st.markdown("#### Model's prediction:")
+        model_age = st.segmented_control(
+            "predicted_age",
+            options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
+            label_visibility="collapsed",
+        )
+    st.session_state.age = user_age
+    st.session_state.pred_age = model_age
+    st.markdown("---")
+    race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
+    user_race = st.segmented_control("race", options=race_options)
+
+
+    st.session_state.race = user_race
+    st.session_state.gender_result = (user_gender==model_gender)
+    st.session_state.age_result = (user_age==model_age)
+    if st.button("Submit Feedback", on_click=submit):
+        st.success("Thank you for your feedback! Now let's have a look at everyone's results!")
+
+    with tab4:
+      answers = db.collection("question2")
+      docs = answers.stream()
+      df = pd.DataFrame()
+      r = []
+      filter_by = { 0: "Gender Prediction Results",   1: "Age Prediction Results"} 
+      st.markdown("#### Filter the results")
+      for doc in docs: 
+        r.append(doc.to_dict()["answer"])
+      df = pd.DataFrame(r, columns=["race", "gender", "gender results", "age results"])
+      st.markdown("### Gender Prediction Results")
+      st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="gender results", size=100)
+      st.markdown("### Race Prediction Results")
+      st.scatter_chart(df, x="race", y="gender", y_label="Gender: Female/Male/Other", color="age results", size=100)
             
         
-    else:  
-        col1, col2 = st.columns(2)
-        with col1:
-            gender_map_options = { 0: ":material/female:",   1: ":material/male:", "2": ":material/transgender:"} 
-            st.markdown("#### Your actual gender:")
-            user_gender = st.segmented_control(
-                "actual_gender",
-                options=gender_map_options.keys(),
-                format_func=lambda option: gender_map_options[option],
-                label_visibility="collapsed"
-            )
-        pred_gender_map_options = { 0: ":material/female:",   1: ":material/male:"} 
-        with col2:
-            st.markdown("#### Model's prediction:")
-            model_gender = st.segmented_control(
-                "predicted_gender",
-                options=pred_gender_map_options.keys(),
-                format_func=lambda option: pred_gender_map_options[option],
-                label_visibility="collapsed",
-            )
-
-        st.session_state.gender = user_gender
-        st.session_state.pred_gender = model_gender
-
-        st.markdown("---")
-        col3, col4 = st.columns(2)
-        with col3:
-            st.markdown("#### Your actual age group:")
-            user_age = st.segmented_control(
-                "actual_age",
-                options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+ "],
-                label_visibility="collapsed"
-            )
-        with col4:
-            st.markdown("#### Model's prediction:")
-            model_age = st.segmented_control(
-                "predicted_age",
-                options=["0-2", "4-6", "8-12", "15-20", "25-32", "38-43", "48-53", "60+"],
-                label_visibility="collapsed",
-            )
-        st.session_state.age = user_age
-        st.session_state.pred_age = model_age
-        st.markdown("---")
-        race_options = ["Asian", "Black", "Hispanic", "White", "Other"]
-        user_race = st.segmented_control("race", options=race_options)
-
-
-        st.session_state.race = user_race
-        st.session_state.gender_result = (user_gender==model_gender)
-        st.session_state.age_result = (user_age==model_age)
-        if st.button("Submit Feedback", on_click=submit):
-            st.success("Thank you for your feedback! Now let's have a look at everyone's results!")
-
-    
     # st.subheader("Key Points to Notice:")
     # st.markdown("""
     # - Detection accuracy varies across different demographics
