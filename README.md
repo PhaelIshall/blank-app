@@ -11,7 +11,7 @@ The AI predictor has been ran on thousands of individuals with different backgro
 
 We can also tell them that like most AI systems that are used in the market right now like ChatGPT, we don't really know what data they were trained on: which means what data they know really well, and which data they are not so familiar with.　So it is hard to tell when they fail this way, because it depends on people trying them out and talking about it. So yes, these tools can be useful and help out lives, similar technology is used at airport gates, there the margin of error is lower and the model can't fail like it does here because that really affects people's lives. 
 
-*Conclusion: AI tools great, but we should use them carefully and understand that they are not perfect.*
+*Conclusion: AI tools great, but we should use them carefully and understand that they are not perfect, they can be biased.*
  
 #### Exercise
 - The students will not tell us their demographic information and what the model guessed, and then we can analyze the results for the whole class.
