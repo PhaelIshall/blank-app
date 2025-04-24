@@ -256,7 +256,7 @@ with tab3:
         st.plotly_chart(fig_box, use_container_width=True)
         
         fig_heatmap = px.density_heatmap(
-            df, 
+            df.groupby('race')['gender results'].mean().reset_index(),
             x='gender', 
             y='race', 
             z='gender results',
