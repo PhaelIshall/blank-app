@@ -1,6 +1,12 @@
 # AI Outreach 
 
 - This is a playground for students to experiments with some AI tools and also discuss the drawbacks and suggest how to make them better.
+
+## Please note
+- If the Chatbot is not working / there is an error or there is no response for longer than 10 seconds, refresh the page
+- Before the beginning of the workshop, go to [Firebase](https://console.firebase.google.com/), click on the project titled "Outreach" then on the left side menu, click on Build -> Firebase Datastore, this is where all the answers for the question in the home page are, as well as the answers for the demographic survey in the AI predictor section.
+- In the Firebase Datastore, delete "question1" and "question2" and then re-create them by clicking on "start collection" -> Collection ID: question1 -> Next then Document ID (click on Auto ID) and save. Then, click on the collection that you created "question1", you will see a new document in the middle of the table, click on the three dots next to it then delete it. Repeat this for question2.
+
 ## AI Predictor
 #### Live Demo: 
 This section has a portion where the students have their photo taken and get to see the AI prediction for their age and gender. They also get to see the probabilities that the model outputs for each prediction. The students are asked to take the photos with different facial expressions, rotating their heads in different directions so that they can notice that the output changes. They can also try it in a situation with lower lighting etc. 
