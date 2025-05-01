@@ -1,5 +1,5 @@
 # AI Outreach 
-
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-outreach.streamlit.app/)
 - This is a playground for students to experiments with some AI tools and also discuss the drawbacks and suggest how to make them better. The platform is hosted on Streamlit and can be accessed [here](https://ai-outreach.streamlit.app/)
 
 ## Please note
