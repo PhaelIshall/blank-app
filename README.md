@@ -1,17 +1,20 @@
 # AI Outreach 
 
-- This is a playground for students to experiments with some AI tools and also discuss the drawbacks and suggest how to make them better.
+- This is a playground for students to experiments with some AI tools and also discuss the drawbacks and suggest how to make them better. The platform is hosted on Streamlit and can be accessed [here](https://ai-outreach.streamlit.app/)
 
 ## Please note
 - If the Chatbot is not working / there is an error or there is no response for longer than 10 seconds, refresh the page
 - Before the beginning of the workshop, go to [Firebase](https://console.firebase.google.com/), click on the project titled "Outreach" then on the left side menu, click on Build -> Firebase Datastore, this is where all the answers for the question in the home page are, as well as the answers for the demographic survey in the AI predictor section.
 - In the Firebase Datastore, delete "question1" and "question2" and then re-create them by clicking on "start collection" -> Collection ID: question1 -> Next then Document ID (click on Auto ID) and save. Then, click on the collection that you created "question1", you will see a new document in the middle of the table, click on the three dots next to it then delete it. Repeat this for question2.
+- To add new collaborators to see the code and the instructions on this page, go to the repository through [this link](https://github.com/PhaelIshall/blank-app), then find settings, then collaborators in the side menu, there you can add collaborators by email or github username.
 
 ## AI Predictor
 #### Live Demo: 
 This section has a portion where the students have their photo taken and get to see the AI prediction for their age and gender. They also get to see the probabilities that the model outputs for each prediction. The students are asked to take the photos with different facial expressions, rotating their heads in different directions so that they can notice that the output changes. They can also try it in a situation with lower lighting etc. 
 #### Demographic Comparison: 
-The AI predictor has been ran on thousands of individuals with different backgrounds on the Fairface dataset. This allowed us to have some results of accuracy per ethnic group. In this section we want to encourage the students to think critically about the overall results. Here are things that can be discusse: 
+The AI predictor has been ran on thousands of individuals with different backgrounds on the Fairface dataset. The dataset contains face images pulled from Flickr and has information about race, gender and age. It contains 7 different race categories: White, Black, Indian, East Asian, Southeast Asian, Middle Eastern, and Latino. This dataset is great because it offers a balanced distribution and if we train models on it, we can encourage them to recognize and behave well with different races, as opposed to being overwhelmingly better for white individuals for instance. 
+
+This experiment allowed us to have some results of accuracy per ethnic group. In this section we want to encourage the students to think critically about the overall results. Here are things that can be discusse: 
 - Accuracy for gender prediction is lowest for black individuals (62%) and for the others it ranges between 70% and 79%
 - Accuracy for age prediction is bad across the board. We can tell them that it is definitley a harder task (ask them to guess your age / another invited person). In addition to having more categories than the gender (8 categories). Still, the model performs the worst for black people here as well at 0.26% and latinos at 0.38% but for all the others it is more than doubled (but still pretty bad). 
 
